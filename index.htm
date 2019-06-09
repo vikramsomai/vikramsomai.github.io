@@ -4,7 +4,7 @@
 		
  <meta charset="UTF-8">
   <meta name="description" content="vikram somai">
-  <meta name="keywords" content="vikram somai,CSS,XML,JavaScript">
+  <meta name="keywords" content="vikram somai">
   <meta name="author" content="vikram somai">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -23,8 +23,8 @@
 		</ul>
 </div>
 <div class="text">
-	<p>vikram somai  </p>
-<img src="img2.jpg">
+	<div class="slide">
+</div>
 	<h1> hello world <br>
 		my name is <span style="color:#fff;text-transform:uppercase;">vikram somai </span>,sp
 </h1>
@@ -88,13 +88,7 @@ margin-left:40px;
 						border-bottom:2px solid white;
 					
 						}
-						.text p{
-							font-size:50px;
-							text-align:center;
-							color:white;
-							margin-top:80px;
-							
-							}
+						
 							 button{
 								text-align:center;
 								padding:30px;
@@ -118,19 +112,28 @@ margin-left:40px;
 										padding-top:20px;
 									 padding-left:150px;
 										}
-.text img{
-height:200px;
-width:200px;
-Padding-left:30px;
-Border-radius:20%;}
-a{
-text-decoration:none;
-color:white;
-text-transform:uppercase;
+.slide{
+height:500px;
+Width:500px;
+Padding-left:40px;
+margin-left:250px;
+Margin-top:80px;
+border-radius:20px;
+clip-path:circle(200px at center 200px);
+background-img:url("img2.jpg");
+animation:slide 10s infinite;
+background-size:100% 100%;
 }
+
+@keyframes slide
+{
+25%{background-img:url("img3.jpeg");}
+}
+
 #nav{
 border-bottom:2px solid white;
 }
+
 
 								
 								
