@@ -1,0 +1,87 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="main">
+	<form name="form">
+<input  class="view"type="txt"name="text">
+	</form>
+	<table>
+		<tr>
+			<td><input class="button" type="button"value="c"onclick="clear()">
+				<td><input class="button" type="button"value="<"onclick="insert('<')">
+			<td><input class="button" type="button"value="%"onclick="insert(%)">
+			<td><input class="button" type="button"value="÷"onclick="insert('÷')">
+</tr>
+<tr>
+			<td><input class="button"  type="button"value="7"onclick="insert(7)">
+				<td><input class="button"  type="button"value="8"onclick="insert(8)">
+			<td><input class="button" type="button"value="9"onclick="insert(9)">
+				<td><input class="button" type="button"value="×"onclick="insert('*')">
+			
+</tr>
+<tr>
+			<td><input class="button" type="button"value="4"onclick="insert(4)">
+				<td><input class="button" type="button"value="5"onclick="insert(5)">
+			<td><input class="button" type="button"value="6"onclick="insert(6)">
+				<td><input class="button" type="button"value="-"onclick="insert('-')">
+			
+</tr>
+<tr>
+			<td><input class="button"  type="button"value="1"onclick="insert(1)">
+				<td><input class="button" type="button"value="2"onclick="insert(2)">
+			<td><input class="button" type="button"value="3"onclick="insert(3)">
+				<td><input class="button" type="button"value="+"onclick="insert('+')">
+			
+</tr>
+<tr>
+			<td><input class="button" type="button"value="."onclick="insert('.')">
+				<td><input class="button" type="button"value="0"onclick="insert(0)">
+			<td colspan=3><input class="button" type="button" style="width:180"value="="onclick="sum()">
+				
+</tr>
+		</table>
+		
+</div>
+<style>
+	*{
+		margin:0;
+		padding:0;
+		}
+		.button{
+			height:95;
+			width:87;
+			padding:5;
+			font-size:25;
+			margin:0;
+			outline:none;
+			border:none;
+			color:white;
+			background:linear-gradient(50deg,#00EEFF,#FF00ED);
+			}
+			.view{
+				height:100px;
+				width:100%;
+				font-size:25;
+				padding:5;
+				text-align: right;
+				background:#FFA100;
+				}
+			
+	</style>
+	<script>
+		function insert(num)
+		{
+			document.form.text.value=document.form.text.value+num
+			}
+			function  sum()
+			{
+				document.form.text.value=eval(document.form.text.value)
+				}
+				function clear(){
+					document.form.text.value=" ";
+					}
+		</script>
+</body>
+</html>
