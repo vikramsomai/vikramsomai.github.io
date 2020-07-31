@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="eng">
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="container">
+<a name="home"></a>
+<div class="head">
+<div class="logo">
+<h1>vikram somai</h1>
+</div>
+<input type="checkbox"id="check">
+<label for="check">&#9776;</label>
+<div class="nav">
+
+<ul>
+<li><a href="#home">home</a></li>
+<li><a href="#about">about </a></li>
+<li><a href="#service">service</a></li>
+<li><a href="#portfolio">portfolio</a></li>
+<li><a href="#contact">contact</a></li>
+<li> <a><span style="color:#FFF;padding:10px;border:1px solid #00f4ff;font-size:16px;border-radius: 20px">hire me</span></a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="home">
+	<span style="text-align: start">i'm </span><br>
+	<span style="color:blue;font-size: 50px">vikram somai</span><br>
+	<span style="color:orange">web developer</span>
+</div>
+</div>
+<div id="about">
+	<h1>about</h1>
+	<p>my self vikram somai </p>
+</div>
+<div id="service">
+	<h1>service</h1>
+	
+</div>
+<div id="portfolio">
+	<h1>my skills</h1>
+	<div class="skill">
+		<table>
+			<tr>
+				<td>html</td>
+				<td><span>60%</span></td>
+			</tr>
+				<tr>
+				<td>php</td>
+				<td><span>50%</span></td>
+			</tr>
+			<tr>
+				<td>javascript</td>
+				<td><span>50%</span></td>
+			</tr>
+			<tr>
+				<td>css</td>
+				<td><span>80%</span></td>
+			</tr>
+		</table>
+	</div>
+	
+</div>
+<div id="contact">
+	<h1>contact</h1>
+	<div class="social">
+		<i class="fab fa-instagram">instgram</i>
+	</div>
+</div>
+<style>
+*{
+font-family:sans-serif;
+margin:0;
+padding:0;
+list-style-type:none;
+text-decoration:none;
+scroll-behavior:smooth;
+text-transform:capitalize;
+}
+a{
+
+color:#FFF;
+}
+.container{
+height:100vh;
+width:100%;
+background:#fff;
+}
+.head{
+position: fixed;
+min-width:100%;
+color:#FFF;
+height:60px;
+background:#000;
+display:flex;
+justify-content:space-around;
+overflow:hidden;
+}
+.logo{
+//background:#CCC;
+flex:2;
+display:flex;
+justify-content:center;
+}
+.logo h1{
+line-height:60px;
+}
+.nav {
+flex:2;
+}
+.nav ul li{
+font-size:22px;
+line-height:60px;
+display:inline-block;
+margin-left:18px;
+transition:all 0.5s linear;
+}
+.nav ul li:hover{
+	border-bottom:1px solid orange;
+}
+#check,label{
+	display: none;
+}
+.section{
+	width:100%;
+	height: 100vh;
+	background:#000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	color:#FFF;
+	flex-direction: column;
+}
+span{
+	font-size: 30px;
+	font-weight: 600;
+}
+#about,#service,#contact,#portfolio{
+	display: flex;
+	width:100%;
+	height: 100vh;
+	justify-content:center;
+	align-items:center;
+	flex-direction: column;
+}
+.skill{
+	margin: 30px;
+	height: 300px;
+	width:700px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+table{
+	border-spacing: 30px;
+}
+td{
+	font-size:30px;
+	font-weight: 600;
+	margin-left:100px;
+	
+}
+/*link*/
+.fab .fa-instagram{
+height: 100px;
+width: 100px;
+font-size: 40px;
+}
+@media(max-width: 768px)
+{
+	.head{
+		position: static;
+	}
+.nav {
+	position: absolute;
+	background: #000;
+	position: absolute;
+    min-width:100%;
+    top:20%;
+   
+        
+        	}
+        	.nav ul{
+        		width:100%;
+        	}
+.nav ul li{
+	display: none;
+	height:auto;
+	width:100%;
+	margin-left:0;
+	text-align: center;
+}
+.nav ul li:hover{
+	border:none;
+
+	background: orange;
+}
+label{
+	display: block;
+	margin:10px;
+	font-size: 30px;
+
+}
+#check:checked ~ .nav ul li {
+	//background: red;
+	display: block;
+}
+}
+</style>
+</body>
+</html>
