@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vikram somai</title>
+	<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<style>
+		@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+	*{
+    list-style: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+*,::before,::after{
+  box-sizing: border-box;
+}
+html{
+  scroll-behavior: smooth;
+}
+h1,h2,h3,h4,h5,h6{
+    margin: 0.5rem;
+}
+/* head   */
+.head{
+height: 80px;
+width: 100%;
+background: #FFF;
+display: flex;
+justify-content: space-around;
+align-items: center;
+box-shadow: 0 5px 20px 0 rgba(11,7,110,.04);
+}
+/*logo */
+.logo{
+padding-left:1.5rem;
+font-size:2rem;
+font-weight: 600;
+flex:1;
+}
+/*nav */
+.nav-bar{
+justify-content: center;
+
+}
+#set{
+	
+	position: absolute;
+	left:90%;
+}
+.nav-bar ul{
+	margin-right: 200px;
+}
+.nav-bar ul li{
+    display: inline-block;
+    padding-left: 1rem;
+    font-size: 22px;
+     color: rgb(103, 110, 139);
+    font-weight: 400;
+    cursor:pointer;
+    text-transform: capitalize;
+
+}
+.home{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 400px;
+
+	}
+	.about-box{
+	display: flex;
+	justify-content: center;
+	align-items:flex-start;
+	height: 400px;
+
+	}
+	.skill-box{
+		display: flex;
+		justify-content: flex-start;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		height: 400px;
+	}
+	.home__title{
+		font-size: 3.5rem;
+	}
+	.info{
+margin-left: 60px;
+	}
+	.title{
+position: relative;
+margin-bottom:40px;
+	}
+	.title::after{
+  position: absolute;
+  content: "";
+  width: 64px;
+  height: 0.18rem;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 3rem;
+  background-color:#4070F4;
+}
+.bottom{
+	display: flex;
+	justify-content: space-around;
+	align-items:flex-end;
+	height: 400px;
+  padding: 20px;
+  margin-bottom:100px;
+}
+.copy{
+	font-size: 30px;
+	font-weight: bold;
+}
+.skill-name{
+width:200px;
+}
+.skill-bar{
+	width:90%;
+	background-color: red;
+	height: 20px;
+	border-radius: 20px;
+}
+	</style>
+
+
+
+
+<div class="head">
+	<div class="logo">
+		vikram somai
+	</div>
+	<div class="nav-bar">
+		<ul>
+			<li>ABOUT</li>
+			<li>portfolio</li>
+			<li>resume</li>
+		</ul>
+	</div>
+</div>
+<div class="home" id="box">
+	<div class="info">
+	 <h1 class="home__title">Hi,<br>I'am <span class="home__title-color "style="color:#4070F4;">vikram</span><br> web developer</h1>
+
+                    
+	</div>
+</div>
+	<div class="about">
+		<div class="about_title">
+			<p class="title"style="text-align: center;font-size: 30px;font-weight: 400">about</p>
+		</div>
+		<div class="about-box">
+			<div class="about-img">
+				<p>photo</p>
+				</div>
+				<div class="about-info">
+					<p>asjdfhghdf
+					DFG</p>
+				</div>
+		</div>
+	</div>
+</div>
+<!-- skills  -->
+
+<div class="skills">
+<div class="skills-title">
+		<p class="title"style="text-align: center;font-size: 30px;font-weight: 400">skills</p>
+		</div>
+
+	</div>
+	<div class="skill-box">
+		<div class="skill-name">
+			<div class="pro-name">
+				html
+			</div>
+			<div class="skill-bar">
+				90%
+			</div>
+		</div>
+		<div class="skill-name">
+			<div class="pro-name">
+				css
+			</div>
+			<div class="skill-bar">
+			</div>
+		</div>
+	</div>
+</div>
+<div class="bottom">
+	<div class="copy">
+		&copy vikram somai
+	</div>
+	<div class="social">
+	</div>
+	</div>
+</body>
+
+<script type="text/javascript">
+
+</script>
+</html>
