@@ -65,7 +65,8 @@ a{
 a .fa {
   height:60px;
   width:60px;
-  font-size:26px;
+  font-size:40px;
+  font-weight:600;
   transition:0.2s linear;
 }
 form {
