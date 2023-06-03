@@ -33,8 +33,8 @@
   transform: translateY(85px);
 }
 .container {
-   width:100% auto;
-  `height: 600px;
+   width:100% ;
+   height: 600px;
    display: flex;
    align-items: center;
    justify-content: center;
