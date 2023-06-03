@@ -51,8 +51,9 @@
 }
 a{
   display:inline-block;
-  width:90px;
-  height:90px;
+  width:100px auto;
+  height:60;
+  padding:10px;
   background:#f1f1f1;
   margin:10px;
   border-radius:30%;
@@ -64,6 +65,8 @@ a{
 
 a .fa {
   line-height:90px;
+  height:60px;
+  width:60px;
   font-size:26px;
   transition:0.2s linear;
 }
