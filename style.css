@@ -35,6 +35,9 @@
 .container {
   max-width: 600px;
   height: 400px;
+  display:flex;
+  justify-content:center;
+  align-item:center;
   text-align: center;
 }
 .container h1 {
