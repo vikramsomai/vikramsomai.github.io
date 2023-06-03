@@ -33,18 +33,19 @@
   transform: translateY(85px);
 }
 .container {
-  max-width: 600px;
-  height: 400px;
+   width:100% auto;
+  `height: 600px;
    display: flex;
    align-items: center;
    justify-content: center;
   text-align: center;
 }
 .container h1 {
-  font-size: 40px;
+  font-size: 80px;
   transition-duration: 1s;
   transition-timing-function: ease-in-put;
   font-weight: 600;
+  font-family:'poppins';
   color:#fff;
 }
 form {
