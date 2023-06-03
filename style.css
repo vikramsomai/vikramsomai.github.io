@@ -35,16 +35,17 @@
 .container {
   max-width: 600px;
   height: 400px;
-  display:flex;
-  justify-content:center;
-  align-item:center;
+   display: flex;
+   align-items: center;
+   justify-content: center;
   text-align: center;
 }
 .container h1 {
   font-size: 40px;
   transition-duration: 1s;
   transition-timing-function: ease-in-put;
-  font-weight: 200;
+  font-weight: 600;
+  color:#fff;
 }
 form {
   padding: 20px 0;
