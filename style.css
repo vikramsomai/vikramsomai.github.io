@@ -38,7 +38,7 @@
    display: flex;
    align-items: center;
    justify-content: center;
-  flex-direction:row;
+  flex-direction:column;
   text-align: center;
 }
 .container h1 {
