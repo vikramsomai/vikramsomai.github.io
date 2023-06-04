@@ -30,6 +30,7 @@ body {
 .material {
 	position: relative;
 	display: flex;
+	z-index:1;
 	justify-content: center;
 	align-items: center;
 	transform-style: preserve-3d;
@@ -231,7 +232,7 @@ form button:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 2;
 }
 .bg-bubbles li {
   position: absolute;
