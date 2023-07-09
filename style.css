@@ -1,1 +1,124 @@
 
+:root{
+    --head-color-name:#53e3a6;
+}
+*{
+    margin:0;
+    /* background: hsl(250, 60%, 99%); */
+  
+
+    color: hsl(250,8%,45%);
+    padding:0;
+    text-decoration: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+a:hover{
+    color:var(--head-color-name);
+}
+#home,#about,#skill,#services{
+    height: 100vh;
+}
+.navbar{
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100% auto;
+}
+.navbar .logo{
+    width:50%;
+}
+.navbar .nav-list ul{
+    display: flex;
+    justify-content: space-between;
+
+}
+.nav-list ul li{
+    margin: 10px;
+    font-weight: 400;
+    list-style: none;
+
+}
+.profile,#about{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width:100%;
+}
+#about{
+flex-direction: column;
+}
+#about .title{
+    font-size: 60px;
+}
+.about-data{
+    max-width:800px;
+    font-size: 30px;
+    padding: 20px;
+    line-height: 40px;
+}
+.profile .intro h1{
+    font-size: 70px;
+    text-size-adjust: auto;
+    font-weight: 600;
+}
+.profile{
+    flex-direction: column;
+}
+.social{
+    /* line-height: 60px; */
+    margin-top:20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.link{
+    margin:20px;
+
+}
+.social a i{
+    /* margin:20px; */
+    text-align: center;
+    font-size: 60px;
+    color: #0F67EC;
+    text-align: center;
+}
+.intro{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+ #download{
+    line-height: 40px;
+   padding: 6px;
+    /* width:200px; */
+    font-size: 20px;
+    background-color: aquamarine;
+    color:#FFF;
+    
+    font-weight:600;
+    box-shadow: #CCc;
+    margin-top:20px;
+    border-radius: 8px;
+
+}
+.title{
+    color:var(--head-color-name);
+}
+@media screen and (max-width:600px) {
+.profile .intro h1{
+    font-size: 40px;
+}
+}
+#footer{
+display: flex;
+justify-content: center;
+padding: 20px;
+}
+
+
+
