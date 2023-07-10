@@ -16,6 +16,11 @@
     align-items: center;
     flex-direction: column;
 }
+marquee{
+    color: #53e3a6;
+    position: absolute;
+    top:50%;
+}
 .connect{
     display: flex;
     justify-content: center;
@@ -26,27 +31,33 @@
     padding-left:30px;
     padding-right: 30px;
     font-size: 22px;
-    font-weight: 400;
+    font-weight: 600;
     background-color: #53e3a6;
-box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
+   box-shadow: 0 0.75rem 2rem 0 #53e3a6;
   border-radius: 0.8rem;
   color:#FFF;
   margin: 10px;
 
+}
+.btn:hover{
+    box-shadow: 0 0.75rem 2rem 0.2rem #53e3a6;
 }
 #skill{
  margin-top: 20px;
  display: flex;
  justify-content: center;
  align-items: center;
+ flex-flow: column;
  flex-direction: column;
 }
 .language{
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
 }
 .lang{
     margin: 20px;
+    display: none;
 }
 #skill .title
 {
@@ -55,14 +66,19 @@ box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
 #home{
    margin-top: 100px;
 }
-#home,#about,#skills{
+#home{
     height: 100vh;
 }
+
 .profile,#about{
     display: flex;
     justify-content: center;
     align-items: center;
     width:100%;
+}
+#about{
+    height: 70vh;
+    justify-content: start;
 }
 #about{
     margin-top: 40px;
@@ -107,8 +123,7 @@ flex-direction: column;
   border-radius: 2rem;
   text-align: center;
   align-self: center;
-  border: 1px solid rgba(255, 255, 255, 0.125);
-
+  border: 1px solid rgba(255, 255, 255, 0.125); 
 }
 .social a .uil,.uil{
     /* margin:20px; */
@@ -125,26 +140,14 @@ flex-direction: column;
 }
 .intro h1{
     letter-spacing:10px;
+    text-align: center;
 }
 .intro p{
     font-size: 28px;
     font-weight: 400;
     color:var(--head-color-name)
 }
- #download{
-    line-height: 40px;
-   padding: 6px;
-    /* width:200px; */
-    font-size: 20px;
-    background-color: aquamarine;
-    color:#FFF;
-    
-    font-weight:600;
-    box-shadow: #CCc;
-    margin-top:20px;
-    border-radius: 8px;
 
-}
 .title{
     color:var(--head-color-name);
 }
