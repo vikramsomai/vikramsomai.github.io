@@ -133,9 +133,10 @@ body {
   }
   @media screen and (max-width: 600px) {
     .container{
-        margin-top: 900px;
+        margin-top: 400px;
     }
     .content h1 {
+        margin-top:200px
       font-size: 1.9rem;
     }
     .content-parent{
