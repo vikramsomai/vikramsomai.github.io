@@ -55,7 +55,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height:auto;
+    height:500px;
     align-items: center;
 }
 
