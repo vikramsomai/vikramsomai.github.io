@@ -5,8 +5,6 @@
 
   font-family: "Fira Code", monospace;
 }
-.container {
-}
 .blob {
   z-index: 999;
   display: flex;
@@ -140,7 +138,7 @@ section {
 }
 
 /* mobile */
-@media screen and (min-width: 601px) and (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
   .nav-links,
   .nav-right {
     display: none;
@@ -151,9 +149,6 @@ section {
   .logo {
     line-height: 60px;
   }
-}
-
-@media screen and (max-width: 600px) {
   .hero .left-hero {
     position: absolute;
     top: 10%;
