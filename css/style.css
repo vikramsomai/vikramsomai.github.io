@@ -24,11 +24,6 @@
   z-index: -1;
 }
 
-.container {
-  width: 90%;
-  margin: 0 auto;
-}
-
 .navbar {
   display: flex;
   font-size: 1.5rem;
@@ -157,6 +152,9 @@ section {
     position: relative;
     top: 0;
     left: 0;
+  }
+  .navbar {
+    border-bottom: 1px solid black;
   }
   main {
     padding: 1rem;
