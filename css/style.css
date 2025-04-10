@@ -28,6 +28,7 @@
   display: flex;
   font-size: 1.5rem;
   max-width: 100%;
+  min-width: 490px;
   align-items: start;
   padding: 0rem 2rem;
   border: 1px solid black;
