@@ -2,9 +2,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
   font-family: "Fira Code", monospace;
 }
+.container {
+}
 .blob {
+  z-index: 999;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,13 +82,16 @@
   display: none;
   padding: 1rem;
 }
+section {
+  padding: 1rem;
+}
 
 .hero {
   display: flex;
   justify-content: center;
   position: relative;
   width: 100%;
-  height: 88vh;
+  min-height: 88vh;
 }
 .hero .left-hero {
   position: absolute;
@@ -114,7 +121,14 @@
   font-size: 1.2rem;
   color: #0000ff;
 }
-
+.value {
+  font-size: 1.2rem;
+}
+.value a {
+  color: #0030b5;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
 .footer {
   height: 50px;
   display: flex;
@@ -126,7 +140,7 @@
 }
 
 /* mobile */
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 601px) and (max-width: 1024px) {
   .nav-links,
   .nav-right {
     display: none;
@@ -136,5 +150,13 @@
   }
   .logo {
     line-height: 60px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .hero .left-hero {
+    position: absolute;
+    top: 10%;
+    left: 5%;
   }
 }
