@@ -126,7 +126,8 @@ section {
   font-weight: 600;
   color: #0000ff;
 }
-.value a {
+.value a,
+.mobile-value a {
   color: #0030b5;
   text-decoration: none;
 }
@@ -139,7 +140,9 @@ section {
   padding: 0px 1rem;
   border-top: 1px solid #000;
 }
-
+.mobile-value {
+  display: none;
+}
 /* mobile */
 @media screen and (max-width: 1024px) {
   .nav-links,
@@ -170,5 +173,14 @@ section {
     display: flex;
     max-width: 200px;
     flex-wrap: wrap;
+  }
+  .mobile-value {
+    display: block;
+  }
+  #value {
+    display: none;
+  }
+  .type {
+    padding-right: 5px;
   }
 }
