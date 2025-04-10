@@ -23,7 +23,9 @@
   transform: translate(calc(-50% + 15px), -50%);
   z-index: -1;
 }
-
+header {
+  width: 100%;
+}
 .navbar {
   display: flex;
   font-size: 1.5rem;
@@ -148,16 +150,15 @@ section {
   .logo {
     line-height: 60px;
   }
+  .hero {
+    top: 20%;
+  }
   .hero .left-hero {
-    position: relative;
-    top: 0;
-    left: 0;
+    top: 10%;
+    left: 10%;
   }
   .navbar {
     border-left-width: 0px;
     border-bottom: 1px solid black;
-  }
-  main {
-    padding: 1rem;
   }
 }
