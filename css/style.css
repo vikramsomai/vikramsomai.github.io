@@ -99,10 +99,12 @@ section {
   left: 15%;
 }
 .heading-name {
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: clamp(3rem, 5vw, 4rem);
   font-weight: 600;
 }
-.left-hero h2,
+.left-hero h2 {
+  font-size: clamp(1rem, 5vw, 2rem);
+}
 .comment,
 .variable,
 .type,
@@ -160,5 +162,13 @@ section {
   .navbar {
     border-left-width: 0px;
     border-bottom: 1px solid black;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .hero .left-hero p {
+    display: flex;
+    max-width: 200px;
+    flex-wrap: wrap;
   }
 }
