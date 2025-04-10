@@ -154,6 +154,7 @@ section {
     left: 0;
   }
   .navbar {
+    border-left-width: 0px;
     border-bottom: 1px solid black;
   }
   main {
