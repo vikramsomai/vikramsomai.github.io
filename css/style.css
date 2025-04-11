@@ -28,7 +28,7 @@ header {
 }
 .navbar {
   display: flex;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 5vw, 1.5rem);
   max-width: 100%;
   align-items: start;
   padding: 0rem 2rem;
@@ -55,7 +55,6 @@ header {
   border-left-width: 0px;
 }
 .logo {
-  font-size: 1.5rem;
   font-size: bold;
 }
 .nav-links {
