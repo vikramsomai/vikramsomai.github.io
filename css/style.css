@@ -189,4 +189,7 @@ h1 {
   .type {
     padding-right: 5px;
   }
+  .navbar {
+    padding: 1rem;
+  }
 }
