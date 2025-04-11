@@ -5,15 +5,17 @@
 
   font-family: "Fira Code", monospace;
 }
+
 .blob {
   z-index: 999;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 650px;
-  height: 650px;
+  width: 700px;
+  height: 700px;
   border-radius: 100%;
-  background-image: linear-gradient(#1100ff 10%, #ff00f2);
+  background-image: linear-gradient(135deg, #00bcd4, #3f51b5);
+
   filter: blur(250px);
   transition: all 450ms ease-out;
   position: fixed;
@@ -40,6 +42,7 @@ header {
   font-size: clamp(1rem, 5vw, 1.5rem);
   max-width: 100%;
   align-items: start;
+  background: #fff;
   /* padding: 0rem 2rem; */
   border: 1px solid black;
   justify-content: space-between;
@@ -64,6 +67,7 @@ header {
   border-left-width: 0px;
 }
 .logo {
+  padding-left: 1rem;
   font-size: bold;
 }
 .nav-links {
@@ -190,6 +194,7 @@ h1 {
     display: block;
   }
   .logo {
+    padding-left: 4.2rem;
     line-height: 60px;
   }
   .hero {
@@ -213,9 +218,6 @@ h1 {
     display: flex;
     max-width: 200px;
     flex-wrap: wrap;
-  }
-  .logo {
-    padding: 0.8 0.5rem;
   }
 
   .mobile-value {
