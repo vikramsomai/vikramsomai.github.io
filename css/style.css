@@ -137,7 +137,7 @@ section {
   left: 15%;
 }
 h1 {
-  font-size: clamp(2rem, 2.5vw, 2.5rem);
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
 }
 .heading-name {
   font-size: clamp(3rem, 5vw, 4rem);
