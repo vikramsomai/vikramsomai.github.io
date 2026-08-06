@@ -4,11 +4,70 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vikram Somai | Full Stack Developer Portfolio</title>
+    
+    <!-- Primary SEO Meta Tags -->
+    <meta name="title" content="Vikram Somai | Full Stack Developer Portfolio" />
+    <meta name="description" content="Vikram Somai is a professional Full Stack Developer specializing in React, Angular, Node.js, and modern web application development. View featured projects, tech stacks, and contact information." />
+    <meta name="keywords" content="Vikram Somai, Full Stack Developer, React Developer, Angular Developer, Node.js Engineer, Software Engineer, Surat, India, MCA Graduate, Web Developer Portfolio" />
+    <meta name="author" content="Vikram Somai" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://vikramsomai.github.io/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://vikramsomai.github.io/" />
+    <meta property="og:title" content="Vikram Somai | Full Stack Developer Portfolio" />
+    <meta property="og:description" content="Vikram Somai is a professional Full Stack Developer specializing in React, Angular, Node.js, and modern web application development." />
+    <meta property="og:image" content="https://vikramsomai.github.io/assets/images/jsonflow_ai.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://vikramsomai.github.io/" />
+    <meta property="twitter:title" content="Vikram Somai | Full Stack Developer Portfolio" />
+    <meta property="twitter:description" content="Vikram Somai is a professional Full Stack Developer specializing in React, Angular, Node.js, and modern web application development." />
+    <meta property="twitter:image" content="https://vikramsomai.github.io/assets/images/jsonflow_ai.png" />
+
+    <!-- Structured Data (JSON-LD) for Search Engines -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Vikram Somai",
+        "jobTitle": "Full Stack Developer",
+        "url": "https://vikramsomai.github.io/",
+        "sameAs": [
+          "https://github.com/vikramsomai",
+          "https://www.linkedin.com/in/vikramsomai/"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Surat",
+          "addressRegion": "Gujarat",
+          "addressCountry": "India"
+        },
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "MCA in Computer Science"
+        },
+        "knowsAbout": [
+          "React",
+          "Angular",
+          "Node.js",
+          "Express.js",
+          "MongoDB",
+          "JavaScript",
+          "TypeScript",
+          "Tailwind CSS",
+          "Full Stack Web Development",
+          "Software Engineering"
+        ]
+      }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -22,6 +81,9 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body class="bg-black text-white overflow-x-hidden">
+    <!-- Top Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+
     <!-- Background Elements -->
     <div class="blob"></div>
     <div class="fixed inset-0 dot-pattern opacity-20 pointer-events-none"></div>
@@ -29,8 +91,15 @@
       class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 gradient-glow pointer-events-none"
     ></div>
 
+
+
+
+    <!-- Custom Cursor Follower -->
+    <div id="custom-cursor-dot" class="custom-cursor-dot"></div>
+    <div id="custom-cursor-aura" class="custom-cursor-aura"></div>
+
     <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-50 border-b border-transparent transition-all duration-300">
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 bg-transparent border-b border-transparent transition-all duration-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
           <!-- Logo -->
@@ -69,8 +138,17 @@
             >
           </div>
 
-          <!-- Download CV Button -->
-          <div class="hidden md:block">
+          <!-- Theme Accent Switcher & Download CV Button -->
+          <div class="hidden md:flex items-center space-x-4">
+            <!-- Theme Accent Switcher -->
+            <div class="flex items-center space-x-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full text-xs">
+              <span class="text-gray-400">Accent:</span>
+              <button data-theme-btn="emerald" class="w-3.5 h-3.5 rounded-full bg-emerald-500 hover:scale-125 transition-transform" title="Emerald Theme"></button>
+              <button data-theme-btn="cyan" class="w-3.5 h-3.5 rounded-full bg-cyan-500 hover:scale-125 transition-transform" title="Cyan Theme"></button>
+              <button data-theme-btn="violet" class="w-3.5 h-3.5 rounded-full bg-purple-500 hover:scale-125 transition-transform" title="Violet Theme"></button>
+              <button data-theme-btn="rose" class="w-3.5 h-3.5 rounded-full bg-rose-500 hover:scale-125 transition-transform" title="Rose Theme"></button>
+            </div>
+
             <button
               id="download-cv-btn"
               class="border border-white/20 text-white hover:bg-white/10 px-4 py-2 rounded-lg transition-all duration-300 flex items-center space-x-2"
@@ -89,7 +167,7 @@
         <!-- Mobile Menu -->
         <div
           id="mobile-menu"
-          class="hidden md:hidden bg-black/90 backdrop-blur border-t border-white/10"
+          class="hidden md:hidden bg-black/95 backdrop-blur border-t border-white/10 max-h-[calc(100vh-4rem)] overflow-y-auto"
         >
           <div class="px-2 pt-2 pb-3 space-y-1">
             <a
@@ -122,73 +200,117 @@
       </div>
     </nav>
 
+    <!-- Main Content Wrapper to prevent mobile horizontal overflow -->
+    <div class="overflow-hidden w-full relative">
+
+      <!-- Parallax Ambient Depth ORBs & Floating Badges (Moved inside wrapper to prevent mobile overflow) -->
+      <div class="parallax-orb w-96 h-96 bg-emerald-500/30 top-1/4 -left-48" data-speed="0.25"></div>
+      <div class="parallax-orb w-80 h-80 bg-teal-500/30 top-2/3 -right-40" data-speed="-0.3"></div>
+      <div class="parallax-orb w-96 h-96 bg-purple-500/30 top-[1800px] -left-40" data-speed="0.2"></div>
+
     <!-- Hero Section -->
     <section
       id="home"
-      class="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 text-center"
+      class="relative z-10 flex flex-col items-center justify-start min-h-screen px-6 text-center pt-28 md:pt-32 pb-16"
     >
       <div class="max-w-4xl mx-auto space-y-6">
         <h1
-          class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-tight fade-in-up"
+          class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight fade-in-up"
         >
           Hi, I'm <span class="gradient-text">Vikram Somai</span>
         </h1>
 
-        <h2 class="text-2xl md:text-3xl text-gray-300 mb-6 fade-in-up-delay-1">
-          Full Stack Developer
+        <h2 class="text-xl md:text-2xl text-gray-300 mb-4 fade-in-up-delay-1">
+          I am a <span id="typewriter-role" class="gradient-text font-semibold">Full Stack Developer</span><span class="typewriter-cursor"></span>
         </h2>
 
         <p
-          class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed fade-in-up-delay-2"
+          class="text-base md:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed fade-in-up-delay-2"
         >
           I build exceptional digital experiences that are fast, accessible, and
           visually appealing. Passionate about creating solutions that make an
           impact.
         </p>
 
+        <!-- CTA Buttons -->
         <div
-          class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8 fade-in-up-delay-3"
+          class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 fade-in-up-delay-3"
         >
           <a
             href="#projects"
-            class="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg"
+            class="magnetic-btn bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg"
           >
             View My Work
           </a>
           <a
             href="#contact"
-            class="border border-white/20 text-white hover:bg-white/10 px-8 py-3 rounded-lg font-medium transition-all duration-300 flex items-center space-x-2"
+            class="magnetic-btn border border-white/20 text-white hover:bg-white/10 px-8 py-3 rounded-lg font-medium transition-all duration-300 flex items-center space-x-2"
           >
             <span>Contact Me</span>
             <i class="fas fa-arrow-right text-sm"></i>
           </a>
         </div>
-      </div>
 
-      <!-- Social Links -->
-      <div
-        class="absolute bottom-8 left-8 hidden lg:flex flex-col space-y-4 float-animation"
-      >
-        <a
-          href="#"
-          class="text-gray-400 hover:text-emerald-400 transition-colors"
-        >
-          <i class="fab fa-github text-xl"></i>
-        </a>
-        <a
-          href="https://www.linkedin.com/in/vikramsomai/"
-          class="text-gray-400 hover:text-emerald-400 transition-colors"
-        >
-          <i class="fab fa-linkedin text-xl"></i>
-        </a>
-        <a
-          href="mailto:vikramsomai23@outlook.com"
-          class="text-gray-400 hover:text-emerald-400 transition-colors"
-        >
-          <i class="fas fa-envelope text-xl"></i>
-        </a>
+        <!-- Interactive CLI Terminal Widget -->
+        <div class="pt-6 max-w-2xl mx-auto w-full fade-in-up-delay-3 text-left">
+          <div class="terminal-window">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="terminal-dot dot-red"></span>
+                <span class="terminal-dot dot-yellow"></span>
+                <span class="terminal-dot dot-green"></span>
+              </div>
+              <span class="text-xs text-gray-400 font-mono hidden sm:inline">vikram@portfolio:~</span>
+              <div class="flex items-center space-x-2">
+                <button id="term-btn-help" class="text-xs px-2 py-0.5 rounded bg-white/10 hover:bg-white/20 text-gray-300 transition-colors">help</button>
+                <button id="term-btn-skills" class="text-xs px-2 py-0.5 rounded bg-white/10 hover:bg-white/20 text-gray-300 transition-colors">skills</button>
+                <button id="term-btn-projects" class="text-xs px-2 py-0.5 rounded bg-white/10 hover:bg-white/20 text-gray-300 transition-colors">projects</button>
+              </div>
+            </div>
+            <div id="terminal-body" class="terminal-body">
+              <div class="terminal-line">
+                <span class="terminal-output">Welcome to Vikram Somai's interactive terminal! Type <span class="text-emerald-400 font-bold">'help'</span> or click shortcut buttons above.</span>
+              </div>
+            </div>
+            <div class="px-4 pb-3">
+              <div class="terminal-input-line">
+                <span class="terminal-prompt"><span class="hidden sm:inline">guest@vikramsomai:</span>~$</span>
+                <input type="text" id="terminal-input" class="terminal-input" placeholder="type command (e.g. help, skills, contact)..." autocomplete="off" />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
+
+    <!-- Sticky Social Media Bar (Fixed Left Edge) -->
+    <div
+      class="fixed left-6 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col space-y-4 bg-black/80 border border-white/10 p-3 rounded-full backdrop-blur-md shadow-2xl"
+    >
+      <a
+        target="_blank"
+        href="https://github.com/vikramsomai"
+        class="text-gray-400 hover:text-emerald-400 transition-all duration-200 hover:scale-125 p-1 flex items-center justify-center"
+        title="GitHub"
+      >
+        <i class="fab fa-github text-xl"></i>
+      </a>
+      <a
+        target="_blank"
+        href="https://www.linkedin.com/in/vikramsomai/"
+        class="text-gray-400 hover:text-emerald-400 transition-all duration-200 hover:scale-125 p-1 flex items-center justify-center"
+        title="LinkedIn"
+      >
+        <i class="fab fa-linkedin text-xl"></i>
+      </a>
+      <a
+        href="mailto:vikramsomai23@outlook.com"
+        class="text-gray-400 hover:text-emerald-400 transition-all duration-200 hover:scale-125 p-1 flex items-center justify-center"
+        title="Email"
+      >
+        <i class="fas fa-envelope text-xl"></i>
+      </a>
+    </div>
 
     <!-- About Section -->
     <section id="about" class="relative z-10 py-20 px-6">
@@ -197,7 +319,8 @@
           <span class="gradient-text">About Me</span>
         </h2>
 
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Top Bio & Stat Grid -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div class="space-y-6">
             <h3 class="text-2xl font-semibold mb-4">Who I Am</h3>
             <p class="text-gray-300 leading-relaxed">
@@ -213,9 +336,9 @@
             </p>
           </div>
 
-          <div class="grid grid-cols-2 gap-6">
+          <div class="grid grid-cols-2 gap-4 sm:gap-6">
             <div
-              class="bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 p-6 rounded-lg text-center card-hover"
+              class="bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 p-4 sm:p-6 rounded-lg text-center card-hover"
             >
               <i
                 class="fas fa-map-marker-alt text-3xl text-emerald-400 mb-3"
@@ -225,7 +348,7 @@
             </div>
 
             <div
-              class="bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 p-6 rounded-lg text-center card-hover"
+              class="bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 p-4 sm:p-6 rounded-lg text-center card-hover"
             >
               <i
                 class="fas fa-graduation-cap text-3xl text-emerald-400 mb-3"
@@ -235,7 +358,7 @@
             </div>
 
             <div
-              class="bg-white/5 border border-white/10 hover:border-emerald-500/50 hover:shadow-[0_0_20px_rgba(16,185,129,0.15)] hover:bg-emerald-950/10 transition-all duration-500 p-6 rounded-lg text-center card-hover group"
+              class="bg-white/5 border border-white/10 hover:border-emerald-500/50 hover:shadow-[0_0_20px_rgba(16,185,129,0.15)] hover:bg-emerald-950/10 transition-all duration-500 p-4 sm:p-6 rounded-lg text-center card-hover group"
             >
               <i class="fas fa-briefcase text-3xl text-emerald-400 mb-3 group-hover:scale-110 transition-transform duration-300"></i>
               <h4 class="font-medium text-white mb-1 group-hover:text-emerald-300 transition-colors duration-300">Experience</h4>
@@ -243,13 +366,86 @@
             </div>
 
             <div
-              class="bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 p-6 rounded-lg text-center card-hover"
+              class="bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 p-4 sm:p-6 rounded-lg text-center card-hover"
             >
               <i
                 class="fas fa-project-diagram text-3xl text-emerald-400 mb-3"
               ></i>
               <h4 class="font-medium text-white mb-1">Projects</h4>
               <p class="text-gray-400 text-sm">12+ Completed</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience & Education Timeline (Full Width Centered) -->
+        <div class="pt-8">
+          <h3 class="text-2xl md:text-3xl font-semibold text-center mb-12">
+            <span class="gradient-text">Experience & Milestones</span>
+          </h3>
+
+          <div class="timeline-container">
+            <!-- Timeline Item 1 -->
+            <div class="timeline-item left">
+              <div class="timeline-node"></div>
+              <div class="timeline-card">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-400">2023 - Present</span>
+                  <span class="text-xs text-gray-400"><i class="fas fa-briefcase mr-1"></i> Professional Experience</span>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-1">Full Stack Developer</h4>
+                <p class="text-sm text-gray-400 mb-3">Independent & Industry Client Projects</p>
+                <p class="text-sm text-gray-300 leading-relaxed mb-3">
+                  Architected and engineered responsive frontend & full-stack web applications using React, Node.js, Express, MongoDB, and Tailwind CSS. Built high-traffic landing pages, administrative dashboards, and educational platforms.
+                </p>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="text-xs bg-white/10 text-gray-300 px-2 py-0.5 rounded">React</span>
+                  <span class="text-xs bg-white/10 text-gray-300 px-2 py-0.5 rounded">Node.js</span>
+                  <span class="text-xs bg-white/10 text-gray-300 px-2 py-0.5 rounded">MongoDB</span>
+                  <span class="text-xs bg-white/10 text-gray-300 px-2 py-0.5 rounded">TypeScript</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Timeline Item 2 -->
+            <div class="timeline-item right">
+              <div class="timeline-node"></div>
+              <div class="timeline-card">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-purple-500/20 text-purple-400">Post-Graduation</span>
+                  <span class="text-xs text-gray-400"><i class="fas fa-graduation-cap mr-1"></i> Education</span>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-1">Master of Computer Applications (MCA)</h4>
+                <p class="text-sm text-gray-400 mb-3">Computer Science & Application Software</p>
+                <p class="text-sm text-gray-300 leading-relaxed mb-3">
+                  Specialized in modern software engineering principles, database design, enterprise network systems, OOP architectures (C++, Java), and full-stack development methodologies.
+                </p>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="text-xs bg-white/10 text-gray-300 px-2 py-0.5 rounded">Algorithms</span>
+                  <span class="text-xs bg-white/10 text-gray-300 px-2 py-0.5 rounded">Database Systems</span>
+                  <span class="text-xs bg-white/10 text-gray-300 px-2 py-0.5 rounded">Web Architecture</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Timeline Item 3 -->
+            <div class="timeline-item left">
+              <div class="timeline-node"></div>
+              <div class="timeline-card">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-400">Project Leadership</span>
+                  <span class="text-xs text-gray-400"><i class="fas fa-rocket mr-1"></i> Key Deliveries</span>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-1">12+ Completed Production Projects</h4>
+                <p class="text-sm text-gray-400 mb-3">Commercial & Open Source Web Solutions</p>
+                <p class="text-sm text-gray-300 leading-relaxed mb-3">
+                  Delivered pixel-perfect production applications including HealthCare Dashboards, Industrial Commercial Sites (Dorsan Filtration India), Academy Platforms (Gen Spark), and campaign applications.
+                </p>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="text-xs bg-white/10 text-gray-300 px-2 py-0.5 rounded">SEO Optimization</span>
+                  <span class="text-xs bg-white/10 text-gray-300 px-2 py-0.5 rounded">Responsive Design</span>
+                  <span class="text-xs bg-white/10 text-gray-300 px-2 py-0.5 rounded">Performance</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -260,33 +456,82 @@
     <section id="skills" class="relative z-10 py-20 px-6">
       <div class="max-w-7xl mx-auto">
         <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">
-          <span class="gradient-text">My Skills</span>
+          <span class="gradient-text">My Tech Stack & Skills</span>
         </h2>
-        <p class="text-gray-300 text-center max-w-2xl mx-auto mb-16">
-          I've worked with a variety of technologies in the web development
-          world. Here are some of my core competencies:
+        <p class="text-gray-300 text-center max-w-2xl mx-auto mb-8">
+          A comprehensive overview of my technical expertise, programming languages, core frameworks, and development tools:
         </p>
+
+        <!-- Modern Dribbble Tech Stack Infinite Sliding Marquee -->
+        <div class="tech-marquee-wrapper mb-12 py-3 border-y border-white/10 bg-white/[0.02]">
+          <div class="tech-marquee-track">
+            <div class="tech-marquee-item"><i class="devicon-react-original colored text-lg"></i> React.js</div>
+            <div class="tech-marquee-item"><i class="devicon-nextjs-original text-lg text-white"></i> Next.js</div>
+            <div class="tech-marquee-item"><i class="devicon-typescript-plain colored text-lg"></i> TypeScript</div>
+            <div class="tech-marquee-item"><i class="devicon-nodejs-plain colored text-lg"></i> Node.js</div>
+            <div class="tech-marquee-item"><i class="devicon-nestjs-original colored text-lg"></i> NestJS</div>
+            <div class="tech-marquee-item"><i class="devicon-graphql-plain colored text-lg"></i> GraphQL</div>
+            <div class="tech-marquee-item"><i class="devicon-tailwindcss-original colored text-lg"></i> Tailwind CSS</div>
+            <div class="tech-marquee-item"><i class="devicon-mongodb-plain colored text-lg"></i> MongoDB</div>
+            <div class="tech-marquee-item"><i class="devicon-angularjs-plain colored text-lg"></i> Angular</div>
+            <div class="tech-marquee-item"><i class="devicon-vuejs-plain colored text-lg"></i> Vue.js</div>
+            <div class="tech-marquee-item"><i class="devicon-express-original text-lg text-gray-300"></i> Express.js</div>
+            <div class="tech-marquee-item"><i class="devicon-javascript-plain colored text-lg"></i> JavaScript</div>
+            <div class="tech-marquee-item"><i class="devicon-git-plain colored text-lg"></i> Git & GitHub</div>
+          </div>
+          <!-- Duplicate track for seamless 360 loop -->
+          <div class="tech-marquee-track" aria-hidden="true">
+            <div class="tech-marquee-item"><i class="devicon-react-original colored text-lg"></i> React.js</div>
+            <div class="tech-marquee-item"><i class="devicon-nextjs-original text-lg text-white"></i> Next.js</div>
+            <div class="tech-marquee-item"><i class="devicon-typescript-plain colored text-lg"></i> TypeScript</div>
+            <div class="tech-marquee-item"><i class="devicon-nodejs-plain colored text-lg"></i> Node.js</div>
+            <div class="tech-marquee-item"><i class="devicon-nestjs-original colored text-lg"></i> NestJS</div>
+            <div class="tech-marquee-item"><i class="devicon-graphql-plain colored text-lg"></i> GraphQL</div>
+            <div class="tech-marquee-item"><i class="devicon-tailwindcss-original colored text-lg"></i> Tailwind CSS</div>
+            <div class="tech-marquee-item"><i class="devicon-mongodb-plain colored text-lg"></i> MongoDB</div>
+            <div class="tech-marquee-item"><i class="devicon-angularjs-plain colored text-lg"></i> Angular</div>
+            <div class="tech-marquee-item"><i class="devicon-vuejs-plain colored text-lg"></i> Vue.js</div>
+            <div class="tech-marquee-item"><i class="devicon-express-original text-lg text-gray-300"></i> Express.js</div>
+            <div class="tech-marquee-item"><i class="devicon-javascript-plain colored text-lg"></i> JavaScript</div>
+            <div class="tech-marquee-item"><i class="devicon-git-plain colored text-lg"></i> Git & GitHub</div>
+          </div>
+        </div>
+
+        <!-- Live Skill Search Bar -->
+        <div class="skill-search-wrapper">
+          <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+          <input
+            type="text"
+            id="skill-search-input"
+            class="skill-search-input"
+            placeholder="Search tech stack... (e.g. React, NestJS, SQL, GraphQL, TypeScript)"
+          />
+        </div>
+
+        <!-- Skill Category Filter Tabs -->
+        <div id="skills-filter" class="flex flex-wrap items-center justify-center gap-3 mb-12">
+          <button class="filter-pill active" data-skill-filter="all">All Competencies</button>
+          <button class="filter-pill" data-skill-filter="frontend">Frontend & UI</button>
+          <button class="filter-pill" data-skill-filter="backend">Backend & DB</button>
+          <button class="filter-pill" data-skill-filter="languages">Languages</button>
+          <button class="filter-pill" data-skill-filter="tools">State & Tools</button>
+        </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           <!-- Languages Skills -->
-          <div class="skill-card skill-card-languages p-6 group">
-            <div class="flex items-center mb-4">
-              <div
-                class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300"
-              >
-                <i class="fas fa-code text-blue-400"></i>
+          <div data-skill-cat="languages" class="skill-card tilt-card skill-card-languages p-6 group">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center">
+                <div
+                  class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300"
+                >
+                  <i class="fas fa-code text-blue-400"></i>
+                </div>
+                <h3 class="font-semibold text-white group-hover:text-blue-300 transition-colors duration-300">Languages</h3>
               </div>
-              <h3 class="font-semibold text-white group-hover:text-blue-300 transition-colors duration-300">Languages</h3>
+              <span class="text-xs px-2 py-0.5 rounded bg-blue-500/10 text-blue-300 border border-blue-500/20">Core</span>
             </div>
-            <div class="flex flex-wrap gap-2">
-              <span class="skill-pill">
-                <i class="devicon-cplusplus-plain colored text-base"></i>
-                C/C++
-              </span>
-              <span class="skill-pill">
-                <i class="devicon-java-plain colored text-base"></i>
-                Java
-              </span>
+            <div class="flex flex-wrap gap-2 mb-4">
               <span class="skill-pill">
                 <i class="devicon-javascript-plain colored text-base"></i>
                 JavaScript
@@ -294,6 +539,14 @@
               <span class="skill-pill">
                 <i class="devicon-typescript-plain colored text-base"></i>
                 TypeScript
+              </span>
+              <span class="skill-pill">
+                <i class="devicon-cplusplus-plain colored text-base"></i>
+                C/C++
+              </span>
+              <span class="skill-pill">
+                <i class="devicon-java-plain colored text-base"></i>
+                Java
               </span>
               <span class="skill-pill">
                 <i class="devicon-php-plain colored text-base"></i>
@@ -304,19 +557,32 @@
                 SQL
               </span>
             </div>
+            <!-- Progress Meter -->
+            <div class="pt-2 border-t border-white/5 space-y-1">
+              <div class="flex justify-between text-xs text-gray-400">
+                <span>Proficiency Level</span>
+                <span class="text-blue-400 font-semibold">92%</span>
+              </div>
+              <div class="w-full bg-white/5 h-1.5 rounded-full overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-sky-400 h-full rounded-full" style="width: 92%"></div>
+              </div>
+            </div>
           </div>
 
           <!-- Frontend & UI Skills -->
-          <div class="skill-card skill-card-frontend p-6 group">
-            <div class="flex items-center mb-4">
-              <div
-                class="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300"
-              >
-                <i class="fas fa-laptop-code text-emerald-400"></i>
+          <div data-skill-cat="frontend" class="skill-card tilt-card skill-card-frontend p-6 group">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center">
+                <div
+                  class="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300"
+                >
+                  <i class="fas fa-laptop-code text-emerald-400"></i>
+                </div>
+                <h3 class="font-semibold text-white group-hover:text-emerald-300 transition-colors duration-300">Frontend & UI</h3>
               </div>
-              <h3 class="font-semibold text-white group-hover:text-emerald-300 transition-colors duration-300">Frontend & UI</h3>
+              <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">Advanced</span>
             </div>
-            <div class="flex flex-wrap gap-2">
+            <div class="flex flex-wrap gap-2 mb-4">
               <span class="skill-pill">
                 <i class="devicon-react-original colored text-base"></i>
                 React.js
@@ -330,90 +596,100 @@
                 Vue.js
               </span>
               <span class="skill-pill">
+                <i class="devicon-tailwindcss-original colored text-base"></i>
+                Tailwind CSS
+              </span>
+              <span class="skill-pill">
                 <i class="devicon-html5-plain colored text-base"></i>
                 HTML5
               </span>
               <span class="skill-pill">
                 <i class="devicon-css3-plain colored text-base"></i>
-                CSS3
+                CSS3 / SCSS
               </span>
-              <span class="skill-pill">
-                <i class="devicon-sass-original colored text-base"></i>
-                SCSS
-              </span>
-              <span class="skill-pill">
-                <i class="devicon-tailwindcss-original colored text-base"></i>
-                Tailwind CSS
-              </span>
-              <span class="skill-pill">
-                <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M60 0L10 20v50c0 30 21 50 50 60 29-10 50-30 50-60V20L60 0z" fill="#607D8B"/>
-                  <path d="M60 10L18 27v43c0 25 18 42 42 50 24-8 42-25 42-50V27L60 10z" fill="#CFD8DC"/>
-                  <path d="M60 30L35 85h15l10-25 10 25h15L60 30z" fill="#E91E63"/>
-                </svg>
-                Angular Material
-              </span>
+            </div>
+            <!-- Progress Meter -->
+            <div class="pt-2 border-t border-white/5 space-y-1">
+              <div class="flex justify-between text-xs text-gray-400">
+                <span>Proficiency Level</span>
+                <span class="text-emerald-400 font-semibold">95%</span>
+              </div>
+              <div class="w-full bg-white/5 h-1.5 rounded-full overflow-hidden">
+                <div class="bg-gradient-to-r from-emerald-500 to-teal-400 h-full rounded-full" style="width: 95%"></div>
+              </div>
             </div>
           </div>
 
           <!-- State & Reactivity -->
-          <div class="skill-card skill-card-state p-6 group">
-            <div class="flex items-center mb-4">
-              <div
-                class="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300"
-              >
-                <i class="fas fa-layer-group text-amber-400"></i>
+          <div data-skill-cat="tools" class="skill-card tilt-card skill-card-state p-6 group">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center">
+                <div
+                  class="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300"
+                >
+                  <i class="fas fa-layer-group text-amber-400"></i>
+                </div>
+                <h3 class="font-semibold text-white group-hover:text-amber-300 transition-colors duration-300">State Architecture</h3>
               </div>
-              <h3 class="font-semibold text-white group-hover:text-amber-300 transition-colors duration-300">State & Reactivity</h3>
+              <span class="text-xs px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20">Specialized</span>
             </div>
-            <div class="flex flex-wrap gap-2">
+            <div class="flex flex-wrap gap-2 mb-4">
               <span class="skill-pill">
                 <i class="devicon-redux-original colored text-base"></i>
                 Redux Toolkit
-              </span>
-              <span class="skill-pill">
-                <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M60 0L10 20v50c0 30 21 50 50 60 29-10 50-30 50-60V20L60 0z" fill="#B32C8C"/>
-                  <path d="M60 10L18 27v43c0 25 18 42 42 50 24-8 42-25 42-50V27L60 10z" fill="#F05096"/>
-                  <text x="60" y="78" font-family="'Poppins', sans-serif" font-size="50" font-weight="900" fill="white" text-anchor="middle">N</text>
-                </svg>
-                NgRx
               </span>
               <span class="skill-pill">
                 <i class="devicon-rxjs-plain colored text-base"></i>
                 RxJS
               </span>
               <span class="skill-pill">
-                <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8l1.46.85c-.1.31-.16.63-.16.95 0 2.21 1.79 4 4 4s4-1.79 4-4c0-.98-.36-1.89-.96-2.58l1.41-1.41C17.15 10.02 18 11.91 18 14c0 3.31-2.69 6-6 6zm-2.83-8.83l-1.41-1.41C9.02 6.85 10.91 6 13 6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l-1.46-.85c.1-.31.16-.63.16-.95 0-2.21-1.79-4-4-4c-.98 0-1.89.36-2.58.96z" fill="#FF4154"/>
-                </svg>
+                NgRx
+              </span>
+              <span class="skill-pill">
                 TanStack Query
               </span>
+            </div>
+            <!-- Progress Meter -->
+            <div class="pt-2 border-t border-white/5 space-y-1">
+              <div class="flex justify-between text-xs text-gray-400">
+                <span>Proficiency Level</span>
+                <span class="text-amber-400 font-semibold">88%</span>
+              </div>
+              <div class="w-full bg-white/5 h-1.5 rounded-full overflow-hidden">
+                <div class="bg-gradient-to-r from-amber-500 to-yellow-400 h-full rounded-full" style="width: 88%"></div>
+              </div>
             </div>
           </div>
 
           <!-- Backend & Databases -->
-          <div class="skill-card skill-card-backend p-6 group">
-            <div class="flex items-center mb-4">
-              <div
-                class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300"
-              >
-                <i class="fas fa-server text-purple-400"></i>
+          <div data-skill-cat="backend" class="skill-card tilt-card skill-card-backend p-6 group">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center">
+                <div
+                  class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300"
+                >
+                  <i class="fas fa-server text-purple-400"></i>
+                </div>
+                <h3 class="font-semibold text-white group-hover:text-purple-300 transition-colors duration-300">Backend & Databases</h3>
               </div>
-              <h3 class="font-semibold text-white group-hover:text-purple-300 transition-colors duration-300">Backend & Databases</h3>
+              <span class="text-xs px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 border border-purple-500/20">Full Stack</span>
             </div>
-            <div class="flex flex-wrap gap-2">
+            <div class="flex flex-wrap gap-2 mb-4">
               <span class="skill-pill">
                 <i class="devicon-nodejs-plain colored text-base"></i>
                 Node.js
+              </span>
+              <span class="skill-pill">
+                <i class="devicon-nestjs-original colored text-base"></i>
+                NestJS
               </span>
               <span class="skill-pill">
                 <i class="devicon-express-original text-base text-gray-300"></i>
                 Express.js
               </span>
               <span class="skill-pill">
-                <i class="fa-solid fa-network-wired text-purple-300 text-sm"></i>
-                RESTful APIs
+                <i class="devicon-graphql-plain colored text-base"></i>
+                GraphQL
               </span>
               <span class="skill-pill">
                 <i class="devicon-mongodb-plain colored text-base"></i>
@@ -424,45 +700,74 @@
                 MySQL
               </span>
               <span class="skill-pill">
+                RESTful APIs
+              </span>
+              <span class="skill-pill">
                 <i class="devicon-firebase-plain colored text-base"></i>
                 Firebase
               </span>
             </div>
+            <!-- Progress Meter -->
+            <div class="pt-2 border-t border-white/5 space-y-1">
+              <div class="flex justify-between text-xs text-gray-400">
+                <span>Proficiency Level</span>
+                <span class="text-purple-400 font-semibold">90%</span>
+              </div>
+              <div class="w-full bg-white/5 h-1.5 rounded-full overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-400 h-full rounded-full" style="width: 90%"></div>
+              </div>
+            </div>
           </div>
 
           <!-- Mobile Development -->
-          <div class="skill-card skill-card-mobile p-6 group">
-            <div class="flex items-center mb-4">
-              <div
-                class="w-10 h-10 rounded-full bg-pink-500/20 flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300"
-              >
-                <i class="fas fa-mobile-alt text-pink-400"></i>
+          <div data-skill-cat="frontend" class="skill-card tilt-card skill-card-mobile p-6 group">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center">
+                <div
+                  class="w-10 h-10 rounded-full bg-pink-500/20 flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300"
+                >
+                  <i class="fas fa-mobile-alt text-pink-400"></i>
+                </div>
+                <h3 class="font-semibold text-white group-hover:text-pink-300 transition-colors duration-300">Mobile Development</h3>
               </div>
-              <h3 class="font-semibold text-white group-hover:text-pink-300 transition-colors duration-300">Mobile Development</h3>
+              <span class="text-xs px-2 py-0.5 rounded bg-pink-500/10 text-pink-300 border border-pink-500/20">Cross-Platform</span>
             </div>
-            <div class="flex flex-wrap gap-2">
+            <div class="flex flex-wrap gap-2 mb-4">
               <span class="skill-pill">
                 <i class="devicon-ionic-original colored text-base"></i>
                 Ionic
               </span>
               <span class="skill-pill">
                 <i class="fa-solid fa-mobile-screen-button text-pink-300 text-sm"></i>
-                Cross-platform
+                Capacitor / Mobile
               </span>
+            </div>
+            <!-- Progress Meter -->
+            <div class="pt-2 border-t border-white/5 space-y-1">
+              <div class="flex justify-between text-xs text-gray-400">
+                <span>Proficiency Level</span>
+                <span class="text-pink-400 font-semibold">82%</span>
+              </div>
+              <div class="w-full bg-white/5 h-1.5 rounded-full overflow-hidden">
+                <div class="bg-gradient-to-r from-pink-500 to-rose-400 h-full rounded-full" style="width: 82%"></div>
+              </div>
             </div>
           </div>
 
           <!-- Development & Tools -->
-          <div class="skill-card skill-card-tools p-6 group">
-            <div class="flex items-center mb-4">
-              <div
-                class="w-10 h-10 rounded-full bg-orange-500/20 flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300"
-              >
-                <i class="fas fa-tools text-orange-400"></i>
+          <div data-skill-cat="tools" class="skill-card tilt-card skill-card-tools p-6 group">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center">
+                <div
+                  class="w-10 h-10 rounded-full bg-orange-500/20 flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300"
+                >
+                  <i class="fas fa-tools text-orange-400"></i>
+                </div>
+                <h3 class="font-semibold text-white group-hover:text-orange-300 transition-colors duration-300">DevOps & Tools</h3>
               </div>
-              <h3 class="font-semibold text-white group-hover:text-orange-300 transition-colors duration-300">Development & Tools</h3>
+              <span class="text-xs px-2 py-0.5 rounded bg-orange-500/10 text-orange-300 border border-orange-500/20">Workflow</span>
             </div>
-            <div class="flex flex-wrap gap-2">
+            <div class="flex flex-wrap gap-2 mb-4">
               <span class="skill-pill">
                 <i class="devicon-git-plain colored text-base"></i>
                 Git
@@ -476,55 +781,83 @@
                 Jira
               </span>
               <span class="skill-pill">
-                <i class="fa-solid fa-flask-vial text-orange-300 text-sm"></i>
                 Unit Testing
               </span>
+            </div>
+            <!-- Progress Meter -->
+            <div class="pt-2 border-t border-white/5 space-y-1">
+              <div class="flex justify-between text-xs text-gray-400">
+                <span>Proficiency Level</span>
+                <span class="text-orange-400 font-semibold">89%</span>
+              </div>
+              <div class="w-full bg-white/5 h-1.5 rounded-full overflow-hidden">
+                <div class="bg-gradient-to-r from-orange-500 to-amber-400 h-full rounded-full" style="width: 89%"></div>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Development Approach -->
-        <div class="bg-white/5 border border-white/10 p-8 rounded-lg">
-          <h3 class="font-semibold mb-6 text-white text-xl">
-            My Development Approach
+        <div class="mt-16">
+          <h3 class="text-2xl md:text-3xl font-bold text-center text-white mb-3">
+            <span class="gradient-text">My Development Philosophy</span>
           </h3>
-          <div class="grid md:grid-cols-3 gap-8">
-            <div class="flex items-start">
-              <div
-                class="bg-emerald-500/20 p-3 rounded-full mr-4 flex-shrink-0"
-              >
-                <i class="fas fa-lightbulb text-emerald-400"></i>
+          <p class="text-gray-400 text-center max-w-xl mx-auto mb-10 text-sm">
+            Core engineering principles I follow to deliver scalable, high-performance web applications:
+          </p>
+
+          <div class="grid md:grid-cols-3 gap-6">
+            <!-- Principle 1: Problem Solving -->
+            <div class="tilt-card bg-white/5 border border-white/10 hover:border-emerald-500/40 p-6 rounded-2xl transition-all duration-300 group hover:shadow-2xl hover:shadow-emerald-500/10">
+              <div class="flex items-center justify-between mb-4">
+                <div class="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <i class="fas fa-lightbulb text-xl text-emerald-400"></i>
+                </div>
+                <span class="text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">Analysis</span>
               </div>
-              <div>
-                <h4 class="font-medium mb-2 text-white">Problem Solving</h4>
-                <p class="text-gray-300 text-sm">
-                  I break down complex problems into manageable components and
-                  find efficient solutions.
-                </p>
-              </div>
-            </div>
-            <div class="flex items-start">
-              <div class="bg-purple-500/20 p-3 rounded-full mr-4 flex-shrink-0">
-                <i class="fas fa-code text-purple-400"></i>
-              </div>
-              <div>
-                <h4 class="font-medium mb-2 text-white">Clean Code</h4>
-                <p class="text-gray-300 text-sm">
-                  I write maintainable, well-documented code following best
-                  practices and design patterns.
-                </p>
+              <h4 class="text-xl font-bold text-white mb-2 group-hover:text-emerald-300 transition-colors">Structured Problem Solving</h4>
+              <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                Deconstructing complex technical specifications into modular, maintainable micro-components with efficient algorithmic logic.
+              </p>
+              <div class="flex items-center text-xs text-emerald-400 font-semibold gap-1">
+                <span>Modular Architecture</span>
+                <i class="fas fa-arrow-right text-[10px]"></i>
               </div>
             </div>
-            <div class="flex items-start">
-              <div class="bg-teal-500/20 p-3 rounded-full mr-4 flex-shrink-0">
-                <i class="fas fa-rocket text-teal-400"></i>
+
+            <!-- Principle 2: Clean Code -->
+            <div class="tilt-card bg-white/5 border border-white/10 hover:border-purple-500/40 p-6 rounded-2xl transition-all duration-300 group hover:shadow-2xl hover:shadow-purple-500/10">
+              <div class="flex items-center justify-between mb-4">
+                <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <i class="fas fa-code text-xl text-purple-400"></i>
+                </div>
+                <span class="text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">Standards</span>
               </div>
-              <div>
-                <h4 class="font-medium mb-2 text-white">Performance</h4>
-                <p class="text-gray-300 text-sm">
-                  I optimize applications for speed and efficiency, ensuring
-                  smooth user experiences.
-                </p>
+              <h4 class="text-xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">Clean Code & Best Practices</h4>
+              <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                Writing self-documenting, strongly typed, and testable code adhering to SOLID principles, DRY standards, and design patterns.
+              </p>
+              <div class="flex items-center text-xs text-purple-400 font-semibold gap-1">
+                <span>DRY & SOLID Principles</span>
+                <i class="fas fa-arrow-right text-[10px]"></i>
+              </div>
+            </div>
+
+            <!-- Principle 3: Performance -->
+            <div class="tilt-card bg-white/5 border border-white/10 hover:border-teal-500/40 p-6 rounded-2xl transition-all duration-300 group hover:shadow-2xl hover:shadow-teal-500/10">
+              <div class="flex items-center justify-between mb-4">
+                <div class="w-12 h-12 rounded-xl bg-teal-500/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <i class="fas fa-rocket text-xl text-teal-400"></i>
+                </div>
+                <span class="text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-teal-500/10 text-teal-300 border border-teal-500/20">Speed</span>
+              </div>
+              <h4 class="text-xl font-bold text-white mb-2 group-hover:text-teal-300 transition-colors">Performance & SEO First</h4>
+              <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                Optimizing Core Web Vitals, image pipelines, bundling, and accessibility for lightning-fast loads and high conversion rates.
+              </p>
+              <div class="flex items-center text-xs text-teal-400 font-semibold gap-1">
+                <span>95+ Core Web Vitals</span>
+                <i class="fas fa-arrow-right text-[10px]"></i>
               </div>
             </div>
           </div>
@@ -538,24 +871,194 @@
         <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">
           <span class="gradient-text">My Projects</span>
         </h2>
-        <p class="text-gray-300 text-center max-w-2xl mx-auto mb-16">
+        <p class="text-gray-300 text-center max-w-2xl mx-auto mb-8">
           Here are some of my recent projects. Each one was built to solve a
           specific problem or explore new technologies.
         </p>
 
+        <!-- Project Category Filters -->
+        <div id="projects-filter" class="flex flex-wrap items-center justify-center gap-3 mb-12">
+          <button class="filter-pill active" data-filter="all">All Projects</button>
+          <button class="filter-pill" data-filter="frontend">Frontend</button>
+          <button class="filter-pill" data-filter="fullstack">Full Stack</button>
+        </div>
+
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Project 1 -->
+          <!-- Featured Project: PixoraWave -->
           <div
-            class="project-card project-card-emerald bg-white/5 border border-white/10 transition-all duration-300 rounded-lg overflow-hidden card-hover"
+            data-category="fullstack"
+            class="project-card tilt-card project-card-emerald bg-white/5 border border-white/10 transition-all duration-300 rounded-lg overflow-hidden card-hover"
           >
             <div
-              class="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden"
+              class="aspect-video bg-gradient-to-br from-cyan-950/60 via-blue-950/40 to-gray-900 overflow-hidden relative group flex items-center justify-center p-6"
+            >
+              <div class="text-center group-hover:scale-105 transition-transform duration-500">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-500 flex items-center justify-center mx-auto mb-2 shadow-lg">
+                  <i class="fas fa-layer-group text-2xl text-white"></i>
+                </div>
+                <span class="text-2xl font-black tracking-tight text-white">Pixora<span class="gradient-text">Wave</span></span>
+                <p class="text-xs text-emerald-300 font-mono mt-1">Image Resizer & Studio</p>
+              </div>
+              <button class="modal-open-btn absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white font-medium text-sm transition-opacity duration-300 gap-2"
+                      data-project-title="PixoraWave Studio"
+                      data-project-cat="Full Stack"
+                      data-project-desc="PixoraWave is a next-gen web application for image optimization, exact KB targeting (20KB, 50KB, 100KB, 200KB), background removal, cropping, format conversion (WebP, AVIF, PNG, JPG), and bulk photo processing. 100% browser-based with zero server uploads."
+                      data-project-tags="Next.js,React,TypeScript,Tailwind CSS,Canvas API"
+                      data-project-github="#"
+                      data-project-demo="https://pixorawave.com/">
+                <i class="fas fa-eye"></i> Quick View
+              </button>
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-3">
+                <h3
+                  class="text-xl font-semibold text-white hover:text-emerald-400 transition-colors"
+                >
+                  PixoraWave Studio
+                </h3>
+                <span
+                  class="bg-emerald-500/20 text-emerald-300 text-xs px-2 py-1 rounded-full"
+                  >Full Stack</span
+                >
+              </div>
+              <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+                Next-gen browser-based image studio & resizer. Compress, crop, and convert images to exact KB target sizes with zero server uploads.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="text-xs bg-white/10 text-gray-300 px-2 py-1 rounded"
+                  >Next.js</span
+                >
+                <span
+                  class="text-xs bg-white/10 text-gray-300 px-2 py-1 rounded"
+                  >React</span
+                >
+                <span
+                  class="text-xs bg-white/10 text-gray-300 px-2 py-1 rounded"
+                  >TypeScript</span
+                >
+                <span
+                  class="text-xs bg-white/10 text-gray-300 px-2 py-1 rounded"
+                  >Tailwind CSS</span
+                >
+              </div>
+              <div class="flex space-x-3">
+                <a
+                  href="#"
+                  target="_blank"
+                  class="text-gray-400 hover:text-emerald-400 transition-colors"
+                >
+                  <i class="fab fa-github text-lg"></i>
+                </a>
+                <a
+                  target="_blank"
+                  href="https://pixorawave.com/"
+                  class="text-gray-400 hover:text-emerald-400 transition-colors"
+                >
+                  <i class="fas fa-external-link-alt text-lg"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Featured Project: JSON Flow AI -->
+          <div
+            data-category="fullstack"
+            class="project-card tilt-card project-card-purple bg-white/5 border border-white/10 transition-all duration-300 rounded-lg overflow-hidden card-hover"
+          >
+            <div
+              class="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden relative group"
+            >
+              <img
+                src="./assets/images/jsonflow_ai.png"
+                alt="JSON Flow AI Editor"
+                class="project-image w-full h-full object-cover"
+                loading="lazy"
+              />
+              <button class="modal-open-btn absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white font-medium text-sm transition-opacity duration-300 gap-2"
+                      data-project-title="JSON Flow AI — AI JSON Editor & Formatter"
+                      data-project-cat="Full Stack"
+                      data-project-desc="JSON Flow AI is a privacy-first, AI-powered online JSON editor with visual graph flow views, auto-fix capabilities, schema validation, Gemini AI assistance, DB/API forge generators, and instant TypeScript type conversions with 100% local browser processing."
+                      data-project-tags="React,TypeScript,Next.js,Tailwind CSS,Gemini AI"
+                      data-project-github="#"
+                      data-project-demo="https://www.jsonflowai.com/">
+                <i class="fas fa-eye"></i> Quick View
+              </button>
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-3">
+                <h3
+                  class="text-xl font-semibold text-white hover:text-emerald-400 transition-colors"
+                >
+                  JSON Flow AI
+                </h3>
+                <span
+                  class="bg-purple-500/20 text-purple-300 text-xs px-2 py-1 rounded-full"
+                  >Full Stack</span
+                >
+              </div>
+              <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+                Free AI-powered JSON editor with visual node graph views, auto-fix, schema validation, and instant TypeScript generator.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="text-xs bg-white/10 text-gray-300 px-2 py-1 rounded"
+                  >React</span
+                >
+                <span
+                  class="text-xs bg-white/10 text-gray-300 px-2 py-1 rounded"
+                  >TypeScript</span
+                >
+                <span
+                  class="text-xs bg-white/10 text-gray-300 px-2 py-1 rounded"
+                  >Gemini AI</span
+                >
+                <span
+                  class="text-xs bg-white/10 text-gray-300 px-2 py-1 rounded"
+                  >Tailwind CSS</span
+                >
+              </div>
+              <div class="flex space-x-3">
+                <a
+                  href="#"
+                  target="_blank"
+                  class="text-gray-400 hover:text-emerald-400 transition-colors"
+                >
+                  <i class="fab fa-github text-lg"></i>
+                </a>
+                <a
+                  target="_blank"
+                  href="https://www.jsonflowai.com/"
+                  class="text-gray-400 hover:text-emerald-400 transition-colors"
+                >
+                  <i class="fas fa-external-link-alt text-lg"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 1 -->
+          <div
+            data-category="frontend"
+            class="project-card tilt-card project-card-emerald bg-white/5 border border-white/10 transition-all duration-300 rounded-lg overflow-hidden card-hover"
+          >
+            <div
+              class="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden relative group"
             >
               <img
                 src="./assets/images/project1.png"
                 alt="E-learn Language Practice"
                 class="project-image w-full h-full object-cover"
+                loading="lazy"
               />
+              <button class="modal-open-btn absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white font-medium text-sm transition-opacity duration-300 gap-2"
+                      data-project-title="E-learn Language Practice"
+                      data-project-cat="Frontend"
+                      data-project-desc="A modern, visually engaging interactive platform designed for learning and practicing languages with real-time feedback and structured visual exercises."
+                      data-project-tags="Html,Css,JavaScript"
+                      data-project-github="#"
+                      data-project-demo="#">
+                <i class="fas fa-eye"></i> Quick View
+              </button>
             </div>
             <div class="p-6">
               <div class="flex justify-between items-start mb-3">
@@ -608,16 +1111,27 @@
 
           <!-- Project 2 -->
           <div
-            class="project-card project-card-purple bg-white/5 border border-white/10 transition-all duration-300 rounded-lg overflow-hidden card-hover"
+            data-category="fullstack"
+            class="project-card tilt-card project-card-purple bg-white/5 border border-white/10 transition-all duration-300 rounded-lg overflow-hidden card-hover"
           >
             <div
-              class="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden"
+              class="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden relative group"
             >
               <img
                 src="./assets/images/healthcare.png"
                 alt="HealthCare Dashboard"
                 class="project-image w-full h-full object-cover"
+                loading="lazy"
               />
+              <button class="modal-open-btn absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white font-medium text-sm transition-opacity duration-300 gap-2"
+                      data-project-title="HealthCare Dashboard"
+                      data-project-cat="Full Stack"
+                      data-project-desc="A modern healthcare management dashboard designed to streamline medical operations with patient monitoring, appointment scheduling, and analytical reporting."
+                      data-project-tags="React,Node.js,Express,Tailwind"
+                      data-project-github="https://github.com/vikramsomai/healthcare-dashboard"
+                      data-project-demo="https://healthcare-dashboard-rust.vercel.app/">
+                <i class="fas fa-eye"></i> Quick View
+              </button>
             </div>
             <div class="p-6">
               <div class="flex justify-between items-start mb-3">
@@ -628,7 +1142,7 @@
                 </h3>
                 <span
                   class="bg-purple-500/20 text-purple-300 text-xs px-2 py-1 rounded-full"
-                  >Frontend</span
+                  >Full Stack</span
                 >
               </div>
               <p class="text-gray-300 mb-4 text-sm leading-relaxed">
@@ -663,16 +1177,27 @@
 
           <!-- Project 3 -->
           <div
-            class="project-card project-card-emerald bg-white/5 border border-white/10 transition-all duration-300 rounded-lg overflow-hidden card-hover"
+            data-category="frontend"
+            class="project-card tilt-card project-card-emerald bg-white/5 border border-white/10 transition-all duration-300 rounded-lg overflow-hidden card-hover"
           >
             <div
-              class="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden"
+              class="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden relative group"
             >
               <img
                 src="./assets/images/dorson_india.png"
                 alt="Dorsan Filtration India"
                 class="project-image w-full h-full object-cover"
+                loading="lazy"
               />
+              <button class="modal-open-btn absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white font-medium text-sm transition-opacity duration-300 gap-2"
+                      data-project-title="Dorsan Filtration India"
+                      data-project-cat="Frontend"
+                      data-project-desc="A responsive commercial landing page built for an industrial filtration solutions provider, featuring interactive product catalogs, multi-sector application pages, and inquiry quote request workflows."
+                      data-project-tags="Html,Tailwind CSS,JavaScript"
+                      data-project-github="#"
+                      data-project-demo="https://www.dorsanindia.in/">
+                <i class="fas fa-eye"></i> Quick View
+              </button>
             </div>
             <div class="p-6">
               <div class="flex justify-between items-start mb-3">
@@ -724,16 +1249,27 @@
 
           <!-- Project 4 -->
           <div
-            class="project-card project-card-purple bg-white/5 border border-white/10 transition-all duration-300 rounded-lg overflow-hidden card-hover"
+            data-category="frontend"
+            class="project-card tilt-card project-card-purple bg-white/5 border border-white/10 transition-all duration-300 rounded-lg overflow-hidden card-hover"
           >
             <div
-              class="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden"
+              class="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden relative group"
             >
               <img
                 src="./assets/images/design_declares.png"
                 alt="Design Declares Clone"
                 class="project-image w-full h-full object-cover"
+                loading="lazy"
               />
+              <button class="modal-open-btn absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white font-medium text-sm transition-opacity duration-300 gap-2"
+                      data-project-title="Design Declares Clone"
+                      data-project-cat="Frontend"
+                      data-project-desc="A pixel-perfect frontend clone of the Design Declares campaign website, featuring bold high-contrast typography, interactive emergency action toolkits, and fully responsive layouts."
+                      data-project-tags="React,Tailwind CSS,Vite"
+                      data-project-github="#"
+                      data-project-demo="https://design-declares-fitpeo.vercel.app/">
+                <i class="fas fa-eye"></i> Quick View
+              </button>
             </div>
             <div class="p-6">
               <div class="flex justify-between items-start mb-3">
@@ -785,16 +1321,27 @@
 
           <!-- Project 5 -->
           <div
-            class="project-card project-card-emerald bg-white/5 border border-white/10 transition-all duration-300 rounded-lg overflow-hidden card-hover"
+            data-category="fullstack"
+            class="project-card tilt-card project-card-emerald bg-white/5 border border-white/10 transition-all duration-300 rounded-lg overflow-hidden card-hover"
           >
             <div
-              class="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden"
+              class="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden relative group"
             >
               <img
                 src="./assets/images/genspark_academy.png"
                 alt="Gen Spark Academy"
                 class="project-image w-full h-full object-cover"
+                loading="lazy"
               />
+              <button class="modal-open-btn absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white font-medium text-sm transition-opacity duration-300 gap-2"
+                      data-project-title="Gen Spark Academy"
+                      data-project-cat="Full Stack"
+                      data-project-desc="An educational landing page and local tutoring business web application for Gen Spark Tuition Class, featuring search engine optimization, course catalogues, schema integrations, and class scheduling forms."
+                      data-project-tags="React,Tailwind CSS,Vite,Node.js"
+                      data-project-github="#"
+                      data-project-demo="https://www.gensparkclasses.academy/">
+                <i class="fas fa-eye"></i> Quick View
+              </button>
             </div>
             <div class="p-6">
               <div class="flex justify-between items-start mb-3">
@@ -805,7 +1352,7 @@
                 </h3>
                 <span
                   class="bg-emerald-500/20 text-emerald-300 text-xs px-2 py-1 rounded-full"
-                  >Frontend</span
+                  >Full Stack</span
                 >
               </div>
               <p class="text-gray-300 mb-4 text-sm leading-relaxed">
@@ -1082,7 +1629,7 @@
           class="mt-8 border-t border-white/10 pt-8 md:flex md:items-center md:justify-between"
         >
           <p class="text-center md:text-left text-gray-400 text-sm">
-            &copy; 2023 Vikram Somai. All rights reserved.
+            &copy; 2026 Vikram Somai. All rights reserved.
           </p>
           <div
             class="mt-4 md:mt-0 flex justify-center md:justify-end space-x-6"
@@ -1101,15 +1648,305 @@
         </div>
       </div>
     </footer>
+    </div>
 
-    <!-- Floating hire button -->
-    <div class="fixed bottom-6 right-6 z-20">
+    <!-- Project Detail Modal -->
+    <div id="project-modal" class="modal-backdrop">
+      <div class="modal-box p-6 md:p-8 relative">
+        <button id="close-modal-btn" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl p-2 transition-colors">
+          <i class="fas fa-times"></i>
+        </button>
+        <div id="modal-content">
+          <!-- Dynamic Content Populated via JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Customizer Toggle & Control Panel -->
+    <div class="fixed bottom-24 right-6 z-40">
       <button
-        class="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white px-4 py-3 rounded-lg shadow-lg transition-all duration-300 flex items-center"
+        id="customizer-toggle-btn"
+        class="customizer-fab bg-black/80 border border-white/20 hover:border-emerald-400 text-white w-14 h-14 rounded-full shadow-2xl backdrop-blur-md flex items-center justify-center transition-all duration-300 group"
+        title="Customize Theme & Interactions"
       >
-        <span>Hire Me</span>
-        <i class="fas fa-arrow-right ml-2"></i>
+        <i class="fas fa-wand-magic-sparkles text-emerald-400 group-hover:rotate-[360deg] transition-transform duration-700 text-lg"></i>
+        <span class="customizer-fab-pulse"></span>
       </button>
+    </div>
+
+    <!-- Customizer Drawer Modal (Enhanced) -->
+    <div id="customizer-drawer" class="customizer-drawer">
+      <!-- Header -->
+      <div class="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
+        <h3 class="font-bold text-white text-base flex items-center gap-2">
+          <i class="fas fa-wand-magic-sparkles text-emerald-400 customizer-icon-spin"></i> Dynamic Customizer
+        </h3>
+        <div class="flex items-center gap-2">
+          <button id="reset-customizer-btn" class="text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-red-500/10 text-red-400 border border-red-500/20 hover:bg-red-500/20 transition-all" title="Reset everything to defaults">
+            <i class="fas fa-rotate-left mr-1"></i>Reset
+          </button>
+          <button id="close-customizer-btn" class="text-gray-400 hover:text-white text-sm hover:rotate-90 transition-all duration-200">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Tab Navigation -->
+      <div class="flex gap-1 mb-4 bg-white/[0.03] rounded-lg p-1 border border-white/[0.06]">
+        <button class="customizer-tab active" data-cust-tab="appearance">
+          <i class="fas fa-palette text-[10px]"></i> Appearance
+        </button>
+        <button class="customizer-tab" data-cust-tab="effects">
+          <i class="fas fa-bolt text-[10px]"></i> Effects
+        </button>
+        <button class="customizer-tab" data-cust-tab="advanced">
+          <i class="fas fa-gear text-[10px]"></i> Advanced
+        </button>
+      </div>
+
+      <!-- Tab Panels -->
+      <div class="customizer-panels">
+
+        <!-- ═══ APPEARANCE TAB ═══ -->
+        <div class="customizer-panel active" data-cust-panel="appearance">
+          <div class="space-y-5">
+            <!-- Color Accent Theme -->
+            <div class="cust-section-card">
+              <label class="customizer-label">
+                <i class="fas fa-swatchbook text-[10px] opacity-60"></i> Color Accent Theme
+              </label>
+              <div class="flex gap-3 justify-center">
+                <button class="cust-color-swatch" data-theme-btn="emerald" title="Emerald Green">
+                  <span class="cust-color-circle bg-emerald-500">
+                    <i class="fas fa-check text-[9px] text-white opacity-0 cust-color-check"></i>
+                  </span>
+                  <span class="cust-color-name">Emerald</span>
+                </button>
+                <button class="cust-color-swatch" data-theme-btn="cyan" title="Cyan Blue">
+                  <span class="cust-color-circle bg-cyan-500">
+                    <i class="fas fa-check text-[9px] text-white opacity-0 cust-color-check"></i>
+                  </span>
+                  <span class="cust-color-name">Cyan</span>
+                </button>
+                <button class="cust-color-swatch" data-theme-btn="violet" title="Violet">
+                  <span class="cust-color-circle bg-violet-500">
+                    <i class="fas fa-check text-[9px] text-white opacity-0 cust-color-check"></i>
+                  </span>
+                  <span class="cust-color-name">Violet</span>
+                </button>
+                <button class="cust-color-swatch" data-theme-btn="rose" title="Rose Pink">
+                  <span class="cust-color-circle bg-rose-500">
+                    <i class="fas fa-check text-[9px] text-white opacity-0 cust-color-check"></i>
+                  </span>
+                  <span class="cust-color-name">Rose</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Font Family Switcher -->
+            <div class="pt-2 border-t border-white/[0.06]">
+              <label class="customizer-label">
+                <i class="fas fa-font text-[10px] opacity-60"></i> Font Family
+              </label>
+              <div class="grid grid-cols-2 gap-1.5">
+                <button class="cust-font-btn active" data-font="Poppins" style="font-family:'Poppins',sans-serif">Poppins</button>
+                <button class="cust-font-btn" data-font="Inter" style="font-family:'Inter',sans-serif">Inter</button>
+                <button class="cust-font-btn" data-font="Space Grotesk" style="font-family:'Space Grotesk',sans-serif">Space Grotesk</button>
+                <button class="cust-font-btn" data-font="JetBrains Mono" style="font-family:'JetBrains Mono',monospace">JetBrains Mono</button>
+              </div>
+            </div>
+
+            <!-- Background Pattern Selector -->
+            <div class="pt-2 border-t border-white/[0.06]">
+              <label class="customizer-label">
+                <i class="fas fa-border-all text-[10px] opacity-60"></i> Background Pattern
+              </label>
+              <div class="grid grid-cols-4 gap-1.5">
+                <button class="cust-pattern-btn active" data-pattern="dots" title="Dots">
+                  <div class="cust-pattern-preview cust-pattern-dots"></div>
+                  <span>Dots</span>
+                </button>
+                <button class="cust-pattern-btn" data-pattern="grid" title="Grid">
+                  <div class="cust-pattern-preview cust-pattern-grid"></div>
+                  <span>Grid</span>
+                </button>
+                <button class="cust-pattern-btn" data-pattern="cross" title="Crosshatch">
+                  <div class="cust-pattern-preview cust-pattern-cross"></div>
+                  <span>Cross</span>
+                </button>
+                <button class="cust-pattern-btn" data-pattern="none" title="None">
+                  <div class="cust-pattern-preview cust-pattern-none"></div>
+                  <span>None</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Card Border Radius -->
+            <div class="pt-2 border-t border-white/[0.06]">
+              <label class="customizer-label">
+                <i class="fas fa-vector-square text-[10px] opacity-60"></i> Card Corner Style
+              </label>
+              <div class="flex gap-1.5">
+                <button class="cust-radius-btn active" data-radius="rounded" title="Rounded">
+                  <div class="w-5 h-5 border-2 border-white/40 rounded-lg"></div>
+                  <span>Rounded</span>
+                </button>
+                <button class="cust-radius-btn" data-radius="sharp" title="Sharp">
+                  <div class="w-5 h-5 border-2 border-white/40 rounded-sm"></div>
+                  <span>Sharp</span>
+                </button>
+                <button class="cust-radius-btn" data-radius="pill" title="Pill">
+                  <div class="w-5 h-3.5 border-2 border-white/40 rounded-full mt-0.5"></div>
+                  <span>Pill</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══ EFFECTS TAB ═══ -->
+        <div class="customizer-panel" data-cust-panel="effects">
+          <div class="space-y-5">
+            <!-- Glowing Neon Cursor Aura -->
+            <div class="cust-toggle-row">
+              <div class="flex items-center gap-2">
+                <div class="w-7 h-7 rounded-lg bg-purple-500/15 flex items-center justify-center">
+                  <i class="fas fa-mouse-pointer text-purple-400 text-[11px]"></i>
+                </div>
+                <span class="text-xs text-gray-300 font-medium">Neon Cursor Aura</span>
+              </div>
+              <label class="cust-switch">
+                <input type="checkbox" id="toggle-cursor-checkbox" />
+                <span class="cust-switch-slider"></span>
+              </label>
+            </div>
+
+            <!-- UI Audio Clicks -->
+            <div class="cust-toggle-row">
+              <div class="flex items-center gap-2">
+                <div class="w-7 h-7 rounded-lg bg-amber-500/15 flex items-center justify-center">
+                  <i class="fas fa-volume-up text-amber-400 text-[11px]"></i>
+                </div>
+                <span class="text-xs text-gray-300 font-medium">Audio Click Feedback</span>
+              </div>
+              <label class="cust-switch">
+                <input type="checkbox" id="toggle-sound-checkbox" />
+                <span class="cust-switch-slider"></span>
+              </label>
+            </div>
+
+            <!-- Particle / Glow Intensity -->
+            <div class="pt-3 border-t border-white/[0.06]">
+              <div class="flex items-center justify-between mb-2">
+                <label class="customizer-label mb-0">
+                  <i class="fas fa-sun text-[10px] opacity-60"></i> Glow Intensity
+                </label>
+                <span id="glow-intensity-value" class="text-[11px] font-mono text-emerald-400" style="flex-shrink:0">100%</span>
+              </div>
+              <input type="range" id="glow-intensity-slider" min="0" max="200" value="100" class="cust-range-slider" />
+            </div>
+
+            <!-- Glassmorphism Intensity -->
+            <div class="pt-3 border-t border-white/[0.06]">
+              <div class="flex items-center justify-between mb-2">
+                <label class="customizer-label mb-0">
+                  <i class="fas fa-droplet text-[10px] opacity-60"></i> Glass Blur Intensity
+                </label>
+                <span id="blur-intensity-value" class="text-[11px] font-mono text-emerald-400" style="flex-shrink:0">12px</span>
+              </div>
+              <input type="range" id="blur-intensity-slider" min="0" max="30" value="12" class="cust-range-slider" />
+            </div>
+
+            <!-- Tech Ticker Speed -->
+            <div class="pt-3 border-t border-white/[0.06]">
+              <label class="customizer-label">
+                <i class="fas fa-gauge-high text-[10px] opacity-60"></i> Tech Ticker Speed
+              </label>
+              <div class="flex gap-[6px]">
+                <button class="speed-btn px-2.5 py-1 text-xs rounded bg-white/10 text-gray-300 hover:text-white" data-speed="40s">Slow</button>
+                <button class="speed-btn px-2.5 py-1 text-xs rounded bg-emerald-500/30 text-emerald-300" data-speed="25s">Normal</button>
+                <button class="speed-btn px-2.5 py-1 text-xs rounded bg-white/10 text-gray-300 hover:text-white" data-speed="12s">Fast</button>
+                <button class="speed-btn px-2.5 py-1 text-xs rounded bg-white/10 text-gray-300 hover:text-white" data-speed="pause">Pause</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══ ADVANCED TAB ═══ -->
+        <div class="customizer-panel" data-cust-panel="advanced">
+          <div class="space-y-5">
+            <!-- Animation Speed Multiplier -->
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <label class="customizer-label mb-0">
+                  <i class="fas fa-forward text-[10px] opacity-60"></i> Animation Speed
+                </label>
+                <span id="anim-speed-value" class="text-[11px] font-mono text-emerald-400" style="flex-shrink:0">1.0×</span>
+              </div>
+              <input type="range" id="anim-speed-slider" min="0" max="300" value="100" step="25" class="cust-range-slider" />
+              <div class="flex justify-between text-[10px] text-gray-500 mt-1 px-0.5">
+                <span>Off</span><span>Slow</span><span>Normal</span><span>Fast</span>
+              </div>
+            </div>
+
+            <!-- 3D Tilt Intensity -->
+            <div class="pt-3 border-t border-white/[0.06]">
+              <div class="cust-toggle-row">
+                <div class="flex items-center gap-2">
+                  <div class="w-7 h-7 rounded-lg bg-teal-500/15 flex items-center justify-center">
+                    <i class="fas fa-cube text-teal-400 text-[11px]"></i>
+                  </div>
+                  <span class="text-xs text-gray-300 font-medium">3D Card Tilt</span>
+                </div>
+                <label class="cust-switch">
+                  <input type="checkbox" id="toggle-tilt-checkbox" checked />
+                  <span class="cust-switch-slider"></span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Parallax Toggle -->
+            <div class="pt-3 border-t border-white/[0.06]">
+              <div class="cust-toggle-row">
+                <div class="flex items-center gap-2">
+                  <div class="w-7 h-7 rounded-lg bg-blue-500/15 flex items-center justify-center">
+                    <i class="fas fa-layer-group text-blue-400 text-[11px]"></i>
+                  </div>
+                  <span class="text-xs text-gray-300 font-medium">Parallax Depth</span>
+                </div>
+                <label class="cust-switch">
+                  <input type="checkbox" id="toggle-parallax-checkbox" checked />
+                  <span class="cust-switch-slider"></span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Scroll Progress Bar -->
+            <div class="pt-3 border-t border-white/[0.06]">
+              <div class="cust-toggle-row">
+                <div class="flex items-center gap-2">
+                  <div class="w-7 h-7 rounded-lg bg-rose-500/15 flex items-center justify-center">
+                    <i class="fas fa-arrows-left-right-to-line text-rose-400 text-[11px]"></i>
+                  </div>
+                  <span class="text-xs text-gray-300 font-medium">Scroll Progress Bar</span>
+                </div>
+                <label class="cust-switch">
+                  <input type="checkbox" id="toggle-progress-checkbox" checked />
+                  <span class="cust-switch-slider"></span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Export / Share Settings -->
+            <div class="pt-3 border-t border-white/[0.06]">
+              <button id="export-settings-btn" class="w-full text-xs py-2 rounded-lg bg-white/[0.04] border border-white/[0.08] text-gray-300 hover:bg-white/[0.08] hover:text-white transition-all flex items-center justify-center gap-2">
+                <i class="fas fa-share-nodes"></i> Copy Settings Link
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
 
     <!-- JavaScript -->
