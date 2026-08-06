@@ -1089,6 +1089,271 @@ function initFramerMotionEffects() {
   revealElements.forEach((el) => observer.observe(el));
 }
 
+// Blog Section Logic
+function initBlogSection() {
+  const blogGrid = document.getElementById("blog-grid");
+  const blogSearch = document.getElementById("blog-search");
+  const blogCategories = document.querySelectorAll("#blog-categories [data-blog-filter]");
+  const blogEmpty = document.getElementById("blog-empty");
+  const blogLoadMoreBtn = document.getElementById("blog-load-more");
+  const blogLoadMoreContainer = document.getElementById("blog-load-more-container");
+
+  const blogModal = document.getElementById("blog-modal");
+  const closeBlogModalBtn = document.getElementById("close-blog-modal-btn");
+  const backToLogsBtn = document.getElementById("back-to-logs-btn");
+  const blogModalContent = document.getElementById("blog-modal-content");
+  const blogModalCategory = document.getElementById("blog-modal-category");
+  const blogModalTitle = document.getElementById("blog-modal-title");
+  const blogModalDate = document.getElementById("blog-modal-date");
+  const blogModalReadtime = document.getElementById("blog-modal-readtime");
+  const blogReadProgress = document.getElementById("blog-read-progress");
+
+  const shareTwitterBtn = document.getElementById("share-twitter-btn");
+  const shareLinkedinBtn = document.getElementById("share-linkedin-btn");
+  const copyBlogLinkBtn = document.getElementById("copy-blog-link-btn");
+
+  if (!blogGrid) return;
+
+  let activeCategory = "all";
+  let searchQuery = "";
+  let visibleCount = 3; // Number of blogs to show initially
+  let currentOpenBlog = null;
+
+  // Icons mapping for categories
+  const categoryIcons = {
+    tech: "fa-microchip text-cyan-400",
+    development: "fa-code text-emerald-400",
+    design: "fa-wand-magic-sparkles text-purple-400",
+    productivity: "fa-circle-check text-amber-400",
+    default: "fa-book text-emerald-400"
+  };
+
+  // Helper to get category icon class
+  function getIconClass(cat) {
+    return categoryIcons[cat.toLowerCase()] || categoryIcons.default;
+  }
+
+  // Regular expression markdown parser
+  function parseMarkdown(md) {
+    if (!md) return "";
+    let html = md
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+
+    // Headers
+    html = html.replace(/^### (.*?)$/gm, '<h5 class="text-lg font-bold text-white mt-5 mb-2 font-mono">$1</h5>');
+    html = html.replace(/^## (.*?)$/gm, '<h4 class="text-xl font-bold text-white mt-6 mb-3 border-b border-white/10 pb-1 font-mono">$1</h4>');
+    html = html.replace(/^# (.*?)$/gm, '<h3 class="text-2xl font-bold text-white mt-8 mb-4 border-b border-white/10 pb-2 font-mono">$1</h3>');
+
+    // Code Blocks
+    html = html.replace(/```(\w*)\n([\s\S]*?)\n```/gm, (match, lang, code) => {
+      return `<pre class="bg-black/50 border border-white/10 p-4 rounded-lg my-4 overflow-x-auto"><code class="font-mono text-sm text-emerald-400 language-${lang}">${code}</code></pre>`;
+    });
+
+    // Inline Code
+    html = html.replace(/`([^`]+)`/g, '<code class="font-mono text-sm bg-white/10 text-rose-400 px-1.5 py-0.5 rounded">$1</code>');
+
+    // Bold
+    html = html.replace(/\*\*([^*]+)\*\*/g, '<strong class="font-semibold text-white">$1</strong>');
+
+    // Italics
+    html = html.replace(/\*([^*]+)\*/g, '<em class="italic text-gray-300">$1</em>');
+
+    // Blockquotes
+    html = html.replace(/^> (.*?)$/gm, '<blockquote class="border-l-4 border-emerald-500 pl-4 italic text-gray-400 my-4"> $1</blockquote>');
+
+    // Bullet Lists (simple)
+    html = html.replace(/^\- (.*?)$/gm, '<li class="ml-6 list-disc text-gray-300">$1</li>');
+
+    // Paragraphs (split by double newline, wrap with <p> if not list/header/code)
+    const paragraphs = html.split(/\n\n+/);
+    html = paragraphs.map(p => {
+      const trimmed = p.trim();
+      if (trimmed.startsWith('<h') || trimmed.startsWith('<pre') || trimmed.startsWith('<blockquote') || trimmed.startsWith('<li') || trimmed.startsWith('<ul')) {
+        return trimmed;
+      }
+      return `<p class="text-gray-300 text-base leading-relaxed mb-4">${trimmed.replace(/\n/g, '<br>')}</p>`;
+    }).join('\n');
+
+    // Links: [Text](URL)
+    html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" class="text-emerald-400 hover:underline hover:text-emerald-300 transition-colors">$1</a>');
+
+    return html;
+  }
+
+  // Render Blogs
+  function renderBlogs() {
+    blogGrid.innerHTML = "";
+
+    // Filter
+    const filteredBlogs = BLOGS_DATA.filter((post) => {
+      const matchesCategory = activeCategory === "all" || post.category.toLowerCase() === activeCategory;
+      const searchStr = `${post.title} ${post.excerpt} ${post.content}`.toLowerCase();
+      const matchesSearch = searchStr.includes(searchQuery.toLowerCase());
+      return matchesCategory && matchesSearch;
+    });
+
+    if (filteredBlogs.length === 0) {
+      blogEmpty.classList.remove("hidden");
+      blogLoadMoreContainer.classList.add("hidden");
+      return;
+    } else {
+      blogEmpty.classList.add("hidden");
+    }
+
+    // Paginated subset
+    const visibleBlogs = filteredBlogs.slice(0, visibleCount);
+
+    visibleBlogs.forEach((post) => {
+      const iconClass = getIconClass(post.category);
+      const card = document.createElement("div");
+      card.className = "blog-card card-hover group cursor-pointer";
+      card.innerHTML = `
+        <div class="blog-card-header category-${post.category.toLowerCase()}">
+          <div class="header-bg"></div>
+          <i class="fas ${iconClass} header-icon"></i>
+        </div>
+        <div class="p-6 flex flex-col flex-grow">
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="bg-[var(--primary)]/10 text-[var(--primary)] border border-[var(--primary)]/20 text-xs px-2.5 py-1 rounded-full uppercase tracking-wider font-semibold font-mono">${post.category}</span>
+            <span class="text-gray-500 text-xs font-mono">${post.date}</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-[var(--primary)] transition-colors line-clamp-2">${post.title}</h3>
+          <p class="text-gray-400 text-sm mb-5 leading-relaxed line-clamp-3">${post.excerpt}</p>
+          <div class="mt-auto flex items-center justify-between pt-4 border-t border-white/5">
+            <span class="text-xs text-gray-500 font-mono"><i class="far fa-clock mr-1"></i> ${post.readTime}</span>
+            <span class="text-xs font-semibold text-[var(--primary)] hover:text-white transition-colors flex items-center gap-1">
+              Read Article <i class="fas fa-arrow-right transition-transform group-hover:translate-x-1.5 duration-300"></i>
+            </span>
+          </div>
+        </div>
+      `;
+
+      card.addEventListener("click", () => openBlogModal(post));
+      blogGrid.appendChild(card);
+    });
+
+    // Toggle load more visibility
+    if (filteredBlogs.length > visibleCount) {
+      blogLoadMoreContainer.classList.remove("hidden");
+    } else {
+      blogLoadMoreContainer.classList.add("hidden");
+    }
+  }
+
+  // Open Blog Modal
+  function openBlogModal(post) {
+    currentOpenBlog = post;
+    blogModalCategory.innerText = post.category;
+    
+    blogModalTitle.innerText = post.title;
+    blogModalDate.innerText = post.date;
+    blogModalReadtime.innerText = post.readTime;
+    
+    blogReadProgress.style.width = "0%";
+    
+    // Parse content
+    blogModalContent.innerHTML = parseMarkdown(post.content);
+
+    // Reset scroll position of modal content
+    const modalContentScroll = blogModal.querySelector(".overflow-y-auto");
+    if (modalContentScroll) {
+      modalContentScroll.scrollTop = 0;
+    }
+
+    blogModal.classList.add("open");
+    document.body.style.overflow = "hidden"; // Disable background scrolling
+  }
+
+  // Close Blog Modal
+  function closeBlogModal() {
+    blogModal.classList.remove("open");
+    document.body.style.overflow = ""; // Enable background scrolling
+    currentOpenBlog = null;
+  }
+
+  // Handle category filters
+  blogCategories.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      blogCategories.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      activeCategory = btn.getAttribute("data-blog-filter");
+      visibleCount = 3; // Reset paging
+      renderBlogs();
+    });
+  });
+
+  // Handle search bar typing
+  blogSearch.addEventListener("input", (e) => {
+    searchQuery = e.target.value;
+    visibleCount = 3; // Reset paging
+    renderBlogs();
+  });
+
+  // Handle Load More
+  blogLoadMoreBtn.addEventListener("click", () => {
+    visibleCount += 3;
+    renderBlogs();
+  });
+
+  // Scroll reading-progress handler inside modal
+  const modalContentWrapper = blogModal.querySelector(".overflow-y-auto");
+  if (modalContentWrapper) {
+    modalContentWrapper.addEventListener("scroll", () => {
+      const scrolled = modalContentWrapper.scrollTop;
+      const maxScroll = modalContentWrapper.scrollHeight - modalContentWrapper.clientHeight;
+      const percentage = maxScroll > 0 ? (scrolled / maxScroll) * 100 : 0;
+      blogReadProgress.style.width = `${percentage}%`;
+    });
+  }
+
+  // Close handlers
+  closeBlogModalBtn.addEventListener("click", closeBlogModal);
+  backToLogsBtn.addEventListener("click", closeBlogModal);
+  blogModal.addEventListener("click", (e) => {
+    if (e.target === blogModal) closeBlogModal();
+  });
+
+  // Esc key closure
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && blogModal.classList.contains("open")) {
+      closeBlogModal();
+    }
+  });
+
+  // Social share functionality
+  shareTwitterBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (!currentOpenBlog) return;
+    const text = `Read "${currentOpenBlog.title}" by Vikram Somai`;
+    const url = window.location.href;
+    const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
+    window.open(shareUrl, "_blank");
+  });
+
+  shareLinkedinBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (!currentOpenBlog) return;
+    const url = window.location.href;
+    const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+    window.open(shareUrl, "_blank");
+  });
+
+  copyBlogLinkBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const url = window.location.href;
+    navigator.clipboard.writeText(url).then(() => {
+      showToast("Article link copied to clipboard!", "fas fa-link");
+    }).catch(() => {
+      showToast("Failed to copy link.", "fas fa-exclamation-triangle");
+    });
+  });
+
+  // Initial draw
+  renderBlogs();
+}
+
 // Initialize all features once DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
   initTypewriter();
@@ -1101,5 +1366,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initFramerMotionEffects();
   init3DTilt();
   initProjectModal();
+  initBlogSection();
 });
 

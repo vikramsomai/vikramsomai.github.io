@@ -1477,3 +1477,201 @@ body.cursor-active .custom-cursor-aura {
   transform: scale(1.08);
 }
 
+/* ════════════════════════════════════════════════════════
+   BLOG SECTION & CARDS
+   ════════════════════════════════════════════════════════ */
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+.blog-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--card-border-hover);
+  box-shadow: 0 15px 35px -10px rgba(16, 185, 129, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.blog-card-header {
+  height: 160px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.blog-card-header .header-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.5) 100%);
+  transition: transform 0.5s ease;
+  z-index: 1;
+}
+
+.blog-card:hover .header-bg {
+  transform: scale(1.1);
+}
+
+.blog-card-header .header-icon {
+  font-size: 3rem;
+  z-index: 2;
+  transition: all 0.4s ease;
+}
+
+.blog-card:hover .header-icon {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.category-tech {
+  background: radial-gradient(circle at center, rgba(6, 182, 212, 0.15) 0%, rgba(59, 130, 246, 0.03) 70%, transparent 100%);
+  color: #06b6d4;
+}
+
+.category-development {
+  background: radial-gradient(circle at center, rgba(16, 185, 129, 0.15) 0%, rgba(20, 184, 166, 0.03) 70%, transparent 100%);
+  color: #10b981;
+}
+
+.category-design {
+  background: radial-gradient(circle at center, rgba(139, 92, 246, 0.15) 0%, rgba(236, 72, 153, 0.03) 70%, transparent 100%);
+  color: #a78bfa;
+}
+
+.category-productivity {
+  background: radial-gradient(circle at center, rgba(245, 158, 11, 0.15) 0%, rgba(249, 115, 22, 0.03) 70%, transparent 100%);
+  color: #fbbf24;
+}
+
+/* ════════════════════════════════════════════════════════
+   BLOG RICH TEXT & MODAL DETAILS
+   ════════════════════════════════════════════════════════ */
+.blog-rich-text h3 {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.blog-rich-text h4 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.blog-rich-text h5 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #f3f4f6;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.blog-rich-text p {
+  color: #d1d5db;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.blog-rich-text strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.blog-rich-text em {
+  font-style: italic;
+  color: #e5e7eb;
+}
+
+.blog-rich-text blockquote {
+  border-left: 4px solid var(--primary);
+  background: rgba(255, 255, 255, 0.02);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #9ca3af;
+}
+
+.blog-rich-text blockquote p {
+  margin-bottom: 0;
+}
+
+.blog-rich-text ul {
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
+.blog-rich-text ol {
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+  list-style-type: decimal;
+}
+
+.blog-rich-text li {
+  color: #d1d5db;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.blog-rich-text li::marker {
+  color: var(--primary);
+}
+
+.blog-rich-text pre {
+  background: #05070a !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+}
+
+.blog-rich-text code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.875rem;
+}
+
+.blog-rich-text pre::-webkit-scrollbar {
+  height: 6px;
+}
+.blog-rich-text pre::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+.blog-rich-text pre::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Custom Filled Accent Button */
+.btn-theme-filled {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px -3px var(--primary);
+  transition: all 0.3s ease;
+}
+
+.btn-theme-filled:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 6px 20px -3px var(--primary);
+  transform: translateY(-1px);
+}
+
+
