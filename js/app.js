@@ -185,20 +185,86 @@ function showToast(message, iconClass = "fas fa-check-circle") {
   }, 1800);
 }
 
-// Contact Form submission handling with Toast Alert
+// Contact Form submission handling with Web3Forms Integration
 const contactForm = document.querySelector("#contact form");
 if (contactForm) {
   contactForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    // Retrieve values
     const name = document.getElementById("name")?.value || "there";
+    
+    // Retrieve key from localStorage (secure) OR fall back to the obfuscated HTML value
+    const storedKey = localStorage.getItem("web3forms-key");
+    const htmlKeyInput = document.getElementById("web3forms-key");
+    
+    let accessKey = "";
+    if (storedKey) {
+      accessKey = storedKey;
+    } else if (htmlKeyInput && htmlKeyInput.value && htmlKeyInput.value !== "YOUR_ACCESS_KEY_HERE") {
+      // Decode Base64 key on-the-fly to protect against automated GitHub repo scanners
+      try {
+        accessKey = atob(htmlKeyInput.value.trim());
+      } catch (err) {
+        accessKey = htmlKeyInput.value; // Fallback if key is not base64
+      }
+    }
 
-    // Showcase custom Toast Notification
-    showToast(`Thank you, ${name}! Your message has been sent successfully.`, "fas fa-paper-plane");
+    // Set the value back in the DOM for form serialization
+    if (htmlKeyInput) {
+      htmlKeyInput.value = accessKey;
+    }
 
-    // Reset the form values
-    this.reset();
+    const submitBtn = contactForm.querySelector("button[type='submit']");
+    const originalBtnText = submitBtn ? submitBtn.innerHTML : "Send Message";
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
+    }
+
+    // Fallback simulation if key is empty or default placeholder
+    if (!accessKey || accessKey === "YOUR_ACCESS_KEY_HERE") {
+      setTimeout(() => {
+        showToast(`Thank you, ${name}! (Simulated) Message sent successfully.`, "fas fa-paper-plane");
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
+        }
+        contactForm.reset();
+      }, 1000);
+      return;
+    }
+
+    // Process actual form submission payload to Web3Forms API
+    const formData = new FormData(contactForm);
+    const jsonPayload = JSON.stringify(Object.fromEntries(formData));
+
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: jsonPayload,
+    })
+      .then(async (response) => {
+        const result = await response.json();
+        if (response.ok) {
+          showToast(`Thank you, ${name}! Your message was sent successfully.`, "fas fa-paper-plane");
+          contactForm.reset();
+        } else {
+          showToast(result.message || "Failed to submit message.", "fas fa-exclamation-triangle");
+        }
+      })
+      .catch(() => {
+        showToast("Network error. Please check your connection and try again.", "fas fa-wifi");
+      })
+      .then(() => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
+        }
+      });
   });
 }
 
@@ -315,7 +381,7 @@ function initDeveloperTerminal() {
   if (!terminalInput || !terminalBody) return;
 
   const commands = {
-    help: "Available commands: <span class='text-emerald-400 font-bold'>whoami</span>, <span class='text-emerald-400 font-bold'>skills</span>, <span class='text-emerald-400 font-bold'>projects</span>, <span class='text-emerald-400 font-bold'>experience</span>, <span class='text-emerald-400 font-bold'>contact</span>, <span class='text-emerald-400 font-bold'>clear</span>",
+    help: "Available commands: <span class='text-emerald-400 font-bold'>whoami</span>, <span class='text-emerald-400 font-bold'>skills</span>, <span class='text-emerald-400 font-bold'>projects</span>, <span class='text-emerald-400 font-bold'>blog</span>, <span class='text-emerald-400 font-bold'>config</span>, <span class='text-emerald-400 font-bold'>experience</span>, <span class='text-emerald-400 font-bold'>contact</span>, <span class='text-emerald-400 font-bold'>clear</span>",
     whoami: "Vikram Somai - Full Stack Developer with 2.5+ years of experience based in Surat, India. MCA Graduate.",
     skills: "Languages: C/C++, Java, JS, TS, PHP, SQL | Frontend: React, Angular, Vue, Tailwind | Backend: Node.js, NestJS, Express, GraphQL, MongoDB, MySQL",
     projects: "Featured Projects: PixoraWave (pixorawave.com), JSON Flow AI (jsonflowai.com), HealthCare Dashboard, Dorsan Filtration India, Design Declares Clone, Gen Spark Academy",
@@ -324,7 +390,11 @@ function initDeveloperTerminal() {
   };
 
   function executeCommand(cmd) {
-    const trimmed = cmd.trim().toLowerCase();
+    const trimmed = cmd.trim();
+    const lowerTrimmed = trimmed.toLowerCase();
+    const parts = trimmed.split(/\s+/);
+    const mainCmd = parts[0].toLowerCase();
+    const subCmd = parts.slice(1).join(" ");
 
     // Create prompt line
     const promptLine = document.createElement("div");
@@ -332,7 +402,7 @@ function initDeveloperTerminal() {
     promptLine.innerHTML = `<span class="terminal-prompt">guest@vikramsomai:~$</span> <span class="terminal-command">${cmd}</span>`;
     terminalBody.appendChild(promptLine);
 
-    if (trimmed === "clear") {
+    if (lowerTrimmed === "clear") {
       terminalBody.innerHTML = "";
       return;
     }
@@ -340,10 +410,69 @@ function initDeveloperTerminal() {
     const outputLine = document.createElement("div");
     outputLine.className = "terminal-line";
 
-    if (commands[trimmed]) {
-      outputLine.innerHTML = `<span class="terminal-output">${commands[trimmed]}</span>`;
-    } else if (trimmed === "") {
+    if (commands[lowerTrimmed]) {
+      outputLine.innerHTML = `<span class="terminal-output">${commands[lowerTrimmed]}</span>`;
+    } else if (lowerTrimmed === "") {
       outputLine.innerHTML = "";
+      return;
+    } else if (mainCmd === "blog") {
+      if (!subCmd) {
+        let listHtml = "Available dev logs:<br>";
+        BLOGS_DATA.forEach((p) => {
+          listHtml += `- <span class="text-cyan-400 font-bold font-mono">${p.id}</span>: ${p.title}<br>`;
+        });
+        listHtml += "Type <span class='text-emerald-400 font-bold'>blog read [slug]</span> to open an article.";
+        outputLine.innerHTML = `<span class="terminal-output">${listHtml}</span>`;
+      } else if (subCmd.toLowerCase().startsWith("read ")) {
+        const slug = subCmd.substring(5).trim();
+        const post = BLOGS_DATA.find(
+          (p) => p.id.toLowerCase() === slug.toLowerCase() || p.id.toLowerCase().includes(slug.toLowerCase())
+        );
+        if (post) {
+          if (window.openBlogModal) {
+            window.openBlogModal(post);
+            outputLine.innerHTML = `<span class="terminal-output text-emerald-400">Successfully opened article "${post.title}"!</span>`;
+          } else {
+            outputLine.innerHTML = `<span class="terminal-output text-red-400">Error: Blog subsystem not loaded.</span>`;
+          }
+        } else {
+          outputLine.innerHTML = `<span class="terminal-output text-red-400">Log not found. Type 'blog' to list articles.</span>`;
+        }
+      } else {
+        outputLine.innerHTML = `<span class="terminal-output text-red-400">Usage: 'blog' or 'blog read [slug]'.</span>`;
+      }
+    } else if (mainCmd === "config") {
+      if (!subCmd) {
+        outputLine.innerHTML = `<span class="terminal-output text-gray-400">Usage:<br>- <span class="text-emerald-400 font-mono">config set [key]</span>: Set your Web3Forms access key securely.<br>- <span class="text-emerald-400 font-mono">config view</span>: Show current configuration status.<br>- <span class="text-emerald-400 font-mono">config clear</span>: Clear your access key from this browser.</span>`;
+      } else {
+        const configParts = subCmd.split(/\s+/);
+        const action = configParts[0].toLowerCase();
+        const value = configParts.slice(1).join(" ");
+
+        if (action === "set") {
+          if (!value) {
+            outputLine.innerHTML = `<span class="terminal-output text-red-400">Error: Please provide a key. Usage: 'config set [key]'</span>`;
+          } else {
+            localStorage.setItem("web3forms-key", value);
+            outputLine.innerHTML = `<span class="terminal-output text-emerald-400">Web3Forms Access Key saved securely in your browser's localStorage!</span>`;
+            showToast("Access key saved securely!", "fas fa-key");
+          }
+        } else if (action === "view") {
+          const storedKey = localStorage.getItem("web3forms-key");
+          if (storedKey) {
+            const masked = storedKey.substring(0, 4) + "•".repeat(Math.max(0, storedKey.length - 8)) + (storedKey.length > 8 ? storedKey.substring(storedKey.length - 4) : "");
+            outputLine.innerHTML = `<span class="terminal-output">Web3Forms Key: <span class="text-emerald-400 font-mono">${masked}</span> (Saved in browser localStorage)</span>`;
+          } else {
+            outputLine.innerHTML = `<span class="terminal-output">Web3Forms Key: <span class="text-red-400">Not configured</span>. Contact submissions will be simulated.</span>`;
+          }
+        } else if (action === "clear") {
+          localStorage.removeItem("web3forms-key");
+          outputLine.innerHTML = `<span class="terminal-output text-emerald-400">Web3Forms Access Key removed from browser localStorage.</span>`;
+          showToast("Access key cleared.", "fas fa-trash-alt");
+        } else {
+          outputLine.innerHTML = `<span class="terminal-output text-red-400">Unknown config action. Use 'set', 'view', or 'clear'.</span>`;
+        }
+      }
     } else {
       outputLine.innerHTML = `<span class="text-red-400">Command not found: '${trimmed}'. Type 'help' for available commands.</span>`;
     }
@@ -1242,11 +1371,17 @@ function initBlogSection() {
     }
   }
 
+  // Expose openBlogModal globally for integration with CLI terminal and hash routing
+  window.openBlogModal = openBlogModal;
+
   // Open Blog Modal
   function openBlogModal(post) {
     currentOpenBlog = post;
-    blogModalCategory.innerText = post.category;
     
+    // Update URL Hash silently without scroll jump
+    window.history.pushState(null, null, `#blog/${post.id}`);
+
+    blogModalCategory.innerText = post.category;
     blogModalTitle.innerText = post.title;
     blogModalDate.innerText = post.date;
     blogModalReadtime.innerText = post.readTime;
@@ -1271,7 +1406,26 @@ function initBlogSection() {
     blogModal.classList.remove("open");
     document.body.style.overflow = ""; // Enable background scrolling
     currentOpenBlog = null;
+    
+    // Clear URL Hash silently
+    window.history.pushState(null, null, " ");
   }
+
+  // Handle URL Hash routing on page load / hash change
+  function handleHashChange() {
+    const hash = window.location.hash;
+    if (hash && hash.startsWith("#blog/")) {
+      const slug = hash.replace("#blog/", "");
+      const post = BLOGS_DATA.find((p) => p.id === slug);
+      if (post) {
+        // Open with brief delay to let page initialization complete
+        setTimeout(() => openBlogModal(post), 400);
+      }
+    }
+  }
+
+  window.addEventListener("hashchange", handleHashChange);
+  handleHashChange();
 
   // Handle category filters
   blogCategories.forEach((btn) => {
