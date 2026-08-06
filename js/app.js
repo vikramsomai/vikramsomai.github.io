@@ -203,9 +203,9 @@ if (contactForm) {
 }
 
 // Wire up Download CV simulation
-const downloadCvBtn = document.getElementById("download-cv-btn");
-if (downloadCvBtn) {
-  downloadCvBtn.addEventListener("click", () => {
+const downloadCvBtns = document.querySelectorAll("#download-cv-btn, #mobile-download-cv-btn");
+downloadCvBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
     showToast("Preparing curriculum vitae... Download started!", "fas fa-file-download");
     // Simulate direct download path trigger
     const link = document.createElement("a");
@@ -215,7 +215,7 @@ if (downloadCvBtn) {
     link.click();
     document.body.removeChild(link);
   });
-}
+});
 
 // Wire up Hire Me sticky button
 const floatingHire = document.querySelector(".fixed.bottom-6.right-6 button");

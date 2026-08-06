@@ -104,8 +104,8 @@
         <div class="flex items-center justify-between h-16">
           <!-- Logo -->
           <div class="flex items-center space-x-2">
-            <span class="text-lg font-semibold tracking-wide"
-              >VIKRAM SOMAI</span
+            <span class="text-lg font-bold tracking-wide font-mono"
+              >&lt;VIKRAM <span class="gradient-text">SOMAI</span> /&gt;</span
             >
           </div>
 
@@ -195,6 +195,26 @@
               class="block px-3 py-2 text-base font-medium text-white hover:text-emerald-400 hover:bg-white/5 rounded-md transition-colors"
               >Contact</a
             >
+
+            <!-- Mobile Theme Accent Switcher & Download CV Button -->
+            <div class="pt-4 pb-2 border-t border-white/10 mt-3 space-y-4 px-3">
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-gray-400">Accent Theme:</span>
+                <div class="flex items-center space-x-3 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">
+                  <button data-theme-btn="emerald" class="w-3.5 h-3.5 rounded-full bg-emerald-500 hover:scale-125 transition-transform" title="Emerald Theme"></button>
+                  <button data-theme-btn="cyan" class="w-3.5 h-3.5 rounded-full bg-cyan-500 hover:scale-125 transition-transform" title="Cyan Theme"></button>
+                  <button data-theme-btn="violet" class="w-3.5 h-3.5 rounded-full bg-purple-500 hover:scale-125 transition-transform" title="Violet Theme"></button>
+                  <button data-theme-btn="rose" class="w-3.5 h-3.5 rounded-full bg-rose-500 hover:scale-125 transition-transform" title="Rose Theme"></button>
+                </div>
+              </div>
+              <button
+                id="mobile-download-cv-btn"
+                class="w-full justify-center border border-white/20 text-white hover:bg-white/10 px-4 py-2.5 rounded-lg transition-all duration-300 flex items-center space-x-2 text-sm font-medium"
+              >
+                <i class="fas fa-download text-sm"></i>
+                <span>Download CV</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
